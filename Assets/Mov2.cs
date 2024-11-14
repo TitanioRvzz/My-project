@@ -57,20 +57,17 @@ public class Mov2 : MonoBehaviour
                 Vector3Int currentCell = terrenoTilemap.WorldToCell(transform.position);
                 TileBase currentTile = terrenoTilemap.GetTile(currentCell);
 
-                // Si el jugador está en agua, llena la barra de humedad
                 if (Physics2D.OverlapCircle(transform.position, Radio0, aguaLayer))
                 {
                     humedadSlider.value = humedadSlider.maxValue;
                 }
                 else if (humedadSlider.value > 0)
                 {
-                    // En arena seca, reduce la humedad y cambia el tile a mojado
                     if (currentTile == arenaSecaTile)
                     {
                         humedadSlider.value -= 0.25f;
                         terrenoTilemap.SetTile(currentCell, arenaMojadaTile);
                     }
-                    // En arena mojada, reduce la humedad a la mitad de lo que lo haría en arena seca
                     else if (currentTile == arenaMojadaTile)
                     {
                         humedadSlider.value -= 0.18f;
