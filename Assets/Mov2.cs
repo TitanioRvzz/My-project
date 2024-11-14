@@ -104,7 +104,6 @@ public class Mov2 : MonoBehaviour
             }
 
             lastMoveDirection = Move;
-            //UpdateRotation(lastMoveDirection);
         }
 
         if (Input.GetKeyDown(KeyCode.Space))
@@ -114,12 +113,7 @@ public class Mov2 : MonoBehaviour
         }
     }
 
-    private void UpdateRotation(Vector2 direction)
-    {
-        float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
-        transform.rotation = Quaternion.Euler(0, 0, angle);
-    }
-
+   
     private void HitPlayerAttack()
     {
         Vector2 attackPosition = (Vector2)transform.position + lastMoveDirection;
