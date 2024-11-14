@@ -2,7 +2,7 @@ using System.Collections;
 using UnityEngine;
 using UnityEngine.Tilemaps;
 
-public class TurtuleMovement : MonoBehaviour
+public class TurtleMovement : MonoBehaviour
 {
     public Tilemap tilemap;
     public float moveInterval;

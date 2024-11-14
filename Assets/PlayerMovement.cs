@@ -81,7 +81,7 @@ public class PlayerMovement : MonoBehaviour
 
         if (hitTortuga != null)
         {
-            if (hitTortuga.TryGetComponent<TurtuleMovement>(out TurtuleMovement turtle))
+            if (hitTortuga.TryGetComponent<TurtleMovement>(out TurtleMovement turtle))
             {
                 turtle.HitByPlayer(lastMoveDirection);
             }

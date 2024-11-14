@@ -17,6 +17,9 @@ public class Mov2 : MonoBehaviour
     [SerializeField] TileBase arenaMojadaTile;
     [SerializeField] Slider humedadSlider;
     [SerializeField] LayerMask aguaLayer;
+    [SerializeField] Animator anim;
+
+
 
     bool moviendo = false;
     Vector2 Move;
@@ -24,11 +27,12 @@ public class Mov2 : MonoBehaviour
 
     private void Start()
     {
+        anim = GetComponent<Animator>();
         puntodemov = transform.position;
-        humedadSlider.value = 0;  // Inicia la barra de humedad vacía
+        humedadSlider.value = 0;
     }
 
-    private void Update()
+     void Update()
     {
         float moveX = Input.GetAxisRaw("Horizontal");
         float moveY = Input.GetAxisRaw("Vertical");
@@ -36,7 +40,19 @@ public class Mov2 : MonoBehaviour
         if (moveX != 0)
         {
             Move = new Vector2(moveX, 0);
+            anim.SetBool("Walk", true);
+
+            if (moveX > 0)
+            {
+                gameObject.GetComponent<SpriteRenderer>().flipX = true;
+            }
+            else if ( moveX < 0)
+            {
+                gameObject.GetComponent<SpriteRenderer>().flipX = false;
+            }
         }
+
+
         else if (moveY != 0)
         {
             Move = new Vector2(0, moveY);
@@ -44,6 +60,7 @@ public class Mov2 : MonoBehaviour
         else
         {
             Move = Vector2.zero;
+            anim.SetBool("Walk", false);
         }
 
         if (moviendo)
@@ -65,7 +82,7 @@ public class Mov2 : MonoBehaviour
                 {
                     if (currentTile == arenaSecaTile)
                     {
-                        humedadSlider.value -= 0.25f;
+                        humedadSlider.value -= 0.2f;
                         terrenoTilemap.SetTile(currentCell, arenaMojadaTile);
                     }
                     else if (currentTile == arenaMojadaTile)
@@ -87,12 +104,13 @@ public class Mov2 : MonoBehaviour
             }
 
             lastMoveDirection = Move;
-            UpdateRotation(lastMoveDirection);
+            //UpdateRotation(lastMoveDirection);
         }
 
         if (Input.GetKeyDown(KeyCode.Space))
         {
             HitPlayerAttack();
+            anim.SetTrigger("Hit");
         }
     }
 
@@ -109,7 +127,7 @@ public class Mov2 : MonoBehaviour
 
         if (hitTortuga != null)
         {
-            if (hitTortuga.TryGetComponent<TurtuleMovement>(out TurtuleMovement turtle))
+            if (hitTortuga.TryGetComponent<TurtleMovement>(out TurtleMovement turtle))
             {
                 turtle.HitByPlayer(lastMoveDirection);
             }
