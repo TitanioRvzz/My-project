@@ -19,8 +19,6 @@ public class Mov2 : MonoBehaviour
     [SerializeField] LayerMask aguaLayer;
     [SerializeField] Animator anim;
 
-
-
     bool moviendo = false;
     Vector2 Move;
     Vector2 lastMoveDirection;
