@@ -14,6 +14,7 @@ public class TurtuleMovement : MonoBehaviour
     private Vector3Int[] directions = { Vector3Int.up, Vector3Int.down, Vector3Int.left, Vector3Int.right };
     private Vector3Int currentCell;
     private bool isHit = false; 
+    private bool hasMoved = false;
     void Start()
     {
         currentCell = tilemap.WorldToCell(transform.position);
@@ -28,9 +29,14 @@ public class TurtuleMovement : MonoBehaviour
             {
                 yield return new WaitForSeconds(moveInterval);
                 MoveToRandomAdjacentCell();
+                  hasMoved = true; // Mark first movement done
+                }
+                else // After first movement, wait without moving
+                {
+                    yield return new WaitForSeconds(moveInterval * 2.0f); // Wait double the interval
+                }
             }
             yield return null;
-        }
     }
 
     private void MoveToRandomAdjacentCell()
