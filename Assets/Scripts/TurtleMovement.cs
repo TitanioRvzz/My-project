@@ -1,5 +1,6 @@
 using System.Collections;
 using UnityEngine;
+using UnityEngine.TextCore.Text;
 using UnityEngine.Tilemaps;
 
 public class TurtleMovement : MonoBehaviour
@@ -14,10 +15,17 @@ public class TurtleMovement : MonoBehaviour
     private Vector3Int[] directions = { Vector3Int.up, Vector3Int.down, Vector3Int.left, Vector3Int.right };
     private Vector3Int currentCell;
     private bool isHit = false; 
+    public Vector2 respawnposition;
+    public float dilayrespawn = 1f;  
+    public GameObject objectToClone;
+    public float probabilityToCloneTwo = 0.2f;
+    public Transform respawnPoint;
+
     void Start()
     {
         currentCell = tilemap.WorldToCell(transform.position);
         StartCoroutine(MoveRoutine());
+        
     }
 
     private IEnumerator MoveRoutine()
@@ -34,7 +42,7 @@ public class TurtleMovement : MonoBehaviour
     }
 
     private void MoveToRandomAdjacentCell()
-    {
+  {
         Vector3Int randomDirection = directions[Random.Range(0, directions.Length)];
         Vector3Int targetCell = currentCell + randomDirection;
         Vector3 targetPosition = tilemap.GetCellCenterWorld(targetCell);
@@ -73,7 +81,68 @@ public class TurtleMovement : MonoBehaviour
     private void OnDrawGizmos()
     {
         Gizmos.color = Color.red;
-        Gizmos.DrawWireSphere((Vector2)tilemap.GetCellCenterWorld(currentCell) + offsetpunto, Radio0);
+       Gizmos.DrawWireSphere((Vector2)tilemap.GetCellCenterWorld(currentCell), Radio0);
     }
+    private void OnTriggerEnter2D(Collider2D other)
+    {
+    if(other.gameObject.CompareTag("Ocean"))
+    {
+           CloneObjectWithProbability();
+           Destroy(this.gameObject);
+       
+     
+    }    
+    }
+    private void Respawn()
+    {
+        if(objectToClone !=null)
+        {
+            Instantiate(gameObject, objectToClone.transform.position, Quaternion.identity);
+        }
+
+    }
+     private void CloneObjectWithProbability()
+    {
+        // Generamos un número aleatorio entre 0 y 1
+        float randomValue = Random.value;
+
+        // Si el número aleatorio es menor o igual a la probabilidad para 2 clones, instanciamos 2 clones
+        if (randomValue <= probabilityToCloneTwo)
+        {
+            Instantiate(objectToClone, respawnPoint.position, respawnPoint.rotation);  // Primer clon
+            Instantiate(objectToClone, respawnPoint.position + new Vector3(2f, 0f, 0f), respawnPoint.rotation);  // Segundo clon, ligeramente desplazado
+            Debug.Log("2 Clones generados.");
+        }
+        else
+        {
+            // Si no, solo instanciamos 1 clon
+            Instantiate(objectToClone, respawnPoint.position, respawnPoint.rotation);
+            Debug.Log("1 Clon generado.");
+        }
+    }
+    
+  private void InstantiateAndActivateComponents(Vector3 position)
+    {
+        // Instancia el clon en la posición deseada
+        GameObject clone = Instantiate(objectToClone, position, Quaternion.identity);
+
+        // Activamos el Collider y el Script del clon si están desactivados
+        Collider2D collider = clone.GetComponent<Collider2D>();
+        if (collider != null)
+        {
+            collider.enabled = true;  // Aseguramos que el Collider esté activado
+        }
+
+        // Activamos los scripts del clon
+        MonoBehaviour[] scripts = clone.GetComponents<MonoBehaviour>();
+        foreach (var script in scripts)
+        {
+            script.enabled = true;  // Aseguramos que todos los scripts estén activados
+        }
+    }
+ 
 }
+
+
+
 
