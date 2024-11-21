@@ -8,111 +8,138 @@ public class Mov3 : MonoBehaviour
 {
     [SerializeField] float Speed;
     [SerializeField] float Radio0;
-    [SerializeField] Vector2 offsetpunto;
     [SerializeField] LayerMask obstaculo;
-    [SerializeField] LayerMask aguaLayer;
     [SerializeField] LayerMask tortugaLayer;
     [SerializeField] Tilemap terrenoTilemap;
     [SerializeField] TileBase arenaSecaTile;
     [SerializeField] TileBase arenaMojadaTile;
     [SerializeField] Slider humedadSlider;
+    [SerializeField] LayerMask aguaLayer;
     [SerializeField] Animator anim;
 
-    private Vector3Int targetCell;
-    private bool moviendo = false;
+    private Vector3Int puntodemov; // Posición del tile objetivo
+    private bool moviendo = false; // Controla si el jugador está en movimiento
+    private Vector2 lastMoveDirection; // Última dirección en la que se movió el jugador
 
     private void Start()
     {
-        targetCell = terrenoTilemap.WorldToCell(transform.position);
+        anim = GetComponent<Animator>();
+
+        // Centrar al jugador en el tile inicial
+        puntodemov = terrenoTilemap.WorldToCell(transform.position);
+        transform.position = terrenoTilemap.GetCellCenterWorld(puntodemov);
+
         humedadSlider.value = 0;
     }
 
-    private void Update()
+    void Update()
     {
+        // Solo permitir entrada de movimiento si no está moviéndose
         if (!moviendo)
         {
-            // Capturar input de movimiento
-            Vector2 input = new Vector2(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical"));
+            float moveX = Input.GetAxisRaw("Horizontal");
+            float moveY = Input.GetAxisRaw("Vertical");
 
-            // Asegurar movimiento en solo una dirección a la vez
-            if (Mathf.Abs(input.x) > Mathf.Abs(input.y))
+            // Detectar movimiento en una sola dirección (prioridad horizontal sobre vertical)
+            if (moveX != 0)
             {
-                input.y = 0;
+                lastMoveDirection = new Vector2(moveX, 0);
             }
-            else
+            else if (moveY != 0)
             {
-                input.x = 0;
-            }
-
-            // Si se presiona una tecla válida, intentar mover
-            if (input != Vector2.zero)
-            {
-                Vector3Int moveDirection = new Vector3Int(Mathf.RoundToInt(input.x), Mathf.RoundToInt(input.y), 0);
-                Vector3Int newCell = targetCell + moveDirection;
-
-                // Verificar colisión con obstáculos
-                if (!Physics2D.OverlapCircle(terrenoTilemap.GetCellCenterWorld(newCell) + (Vector3)offsetpunto, Radio0, obstaculo))
-                {
-                    targetCell = newCell;
-                    StartCoroutine(MoveToCell(terrenoTilemap.GetCellCenterWorld(newCell)));
-                }
-
-                // Actualizar animación y orientación
-                if (input.x != 0)
-                {
-                    anim.SetBool("Walk", true);
-                    gameObject.GetComponent<SpriteRenderer>().flipX = input.x < 0;
-                }
-                else if (input.y != 0)
-                {
-                    anim.SetBool("Walk", true);
-                }
+                lastMoveDirection = new Vector2(0, moveY);
             }
             else
             {
                 anim.SetBool("Walk", false);
+                return; // No hay movimiento, salir del método
+            }
+
+            // Calcular el próximo tile objetivo
+            Vector3Int nextCell = puntodemov + new Vector3Int((int)lastMoveDirection.x, (int)lastMoveDirection.y, 0);
+
+            // Validar que el próximo tile no tenga obstáculos
+            if (!Physics2D.OverlapCircle(terrenoTilemap.GetCellCenterWorld(nextCell), Radio0, obstaculo))
+            {
+                puntodemov = nextCell; // Actualizar el objetivo del movimiento
+                moviendo = true;
+                anim.SetBool("Walk", true);
+
+                // Cambiar dirección visual (flipX)
+                if (lastMoveDirection.x > 0)
+                    gameObject.GetComponent<SpriteRenderer>().flipX = true;
+                else if (lastMoveDirection.x < 0)
+                    gameObject.GetComponent<SpriteRenderer>().flipX = false;
             }
         }
 
-        // Manejo del agua
-        if (Physics2D.OverlapCircle(transform.position, Radio0, aguaLayer))
+        // Movimiento hacia el tile objetivo
+        if (moviendo)
         {
-            humedadSlider.value = humedadSlider.maxValue;
+            Vector3 targetPosition = terrenoTilemap.GetCellCenterWorld(puntodemov);
+            transform.position = Vector2.MoveTowards(transform.position, targetPosition, Speed * Time.deltaTime);
+
+            // Comprobar si se ha alcanzado el centro del tile
+            if (Vector2.Distance(transform.position, targetPosition) < 0.01f)
+            {
+                transform.position = targetPosition; // Alinear posición exacta
+                moviendo = false;
+
+                // Verificar si el jugador está en agua para rellenar la barra de humedad
+                if (Physics2D.OverlapCircle(transform.position, Radio0, aguaLayer))
+                {
+                    humedadSlider.value = humedadSlider.maxValue;
+                }
+                else if (humedadSlider.value > 0)
+                {
+                    Vector3Int currentCell = terrenoTilemap.WorldToCell(transform.position);
+                    TileBase currentTile = terrenoTilemap.GetTile(currentCell);
+
+                    if (currentTile == arenaSecaTile)
+                    {
+                        humedadSlider.value -= 0.2f;
+                        terrenoTilemap.SetTile(currentCell, arenaMojadaTile);
+                    }
+                    else if (currentTile == arenaMojadaTile)
+                    {
+                        humedadSlider.value -= 0.1f;
+                    }
+                }
+            }
+        }
+
+        // Ataque del jugador
+        if (Input.GetKeyDown(KeyCode.Space))
+        {
+            HitPlayerAttack();
+            anim.SetTrigger("Hit");
         }
     }
 
-    private IEnumerator MoveToCell(Vector3 targetPosition)
+    private void HitPlayerAttack()
     {
-        moviendo = true;
+        Vector2 attackPosition = (Vector2)transform.position + lastMoveDirection;
+        Collider2D hitTortuga = Physics2D.OverlapCircle(attackPosition, Radio0, tortugaLayer);
 
-        while (Vector3.Distance(transform.position, targetPosition) > 0.01f)
+        if (hitTortuga != null)
         {
-            transform.position = Vector3.MoveTowards(transform.position, targetPosition, Speed * Time.deltaTime);
-            yield return null;
-        }
-
-        transform.position = targetPosition;
-        moviendo = false;
-
-        // Actualizar tiles al llegar a la nueva posición
-        UpdateTile();
-    }
-
-    private void UpdateTile()
-    {
-        Vector3Int currentCell = terrenoTilemap.WorldToCell(transform.position);
-        TileBase currentTile = terrenoTilemap.GetTile(currentCell);
-
-        if (currentTile == arenaSecaTile && humedadSlider.value > 0)
-        {
-            humedadSlider.value -= 0.15f; // Reducir humedad
-            terrenoTilemap.SetTile(currentCell, arenaMojadaTile); // Cambiar a tile mojado
+            if (hitTortuga.TryGetComponent<TurtleMovement>(out TurtleMovement turtle))
+            {
+                turtle.HitByPlayer(lastMoveDirection);
+            }
         }
     }
 
     private void OnDrawGizmos()
     {
-        Gizmos.color = Color.red;
-        Gizmos.DrawWireSphere(transform.position + (Vector3)offsetpunto, Radio0);
+        if (terrenoTilemap != null)
+        {
+            Vector3Int currentCell = terrenoTilemap.WorldToCell(transform.position);
+            Vector3 cellCenter = terrenoTilemap.GetCellCenterWorld(currentCell);
+
+            Gizmos.color = Color.green;
+            Gizmos.DrawWireCube(cellCenter, new Vector3(1, 1, 0)); // Dibujar un cuadro que represente el tile actual
+        }
     }
 }
+
