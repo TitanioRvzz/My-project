@@ -105,7 +105,7 @@ public class Mov3 : MonoBehaviour
 
         if (currentTile == arenaSecaTile && humedadSlider.value > 0)
         {
-            humedadSlider.value -= 0.2f; // Reducir humedad
+            humedadSlider.value -= 0.15f; // Reducir humedad
             terrenoTilemap.SetTile(currentCell, arenaMojadaTile); // Cambiar a tile mojado
         }
     }

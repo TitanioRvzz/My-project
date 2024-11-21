@@ -1,0 +1,30 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 13b75c95f34a00d4e8c04f76b73312e6, type: 3}
+  m_Name: Mar_01
+  m_EditorClassIdentifier: 
+  m_AnimatedSprites:
+  - {fileID: -719049166, guid: 1b03af29c9959a34caa5cd8310e1c9aa, type: 3}
+  - {fileID: 577845468, guid: 1b03af29c9959a34caa5cd8310e1c9aa, type: 3}
+  - {fileID: 846556159, guid: 1b03af29c9959a34caa5cd8310e1c9aa, type: 3}
+  - {fileID: 263665839, guid: 1b03af29c9959a34caa5cd8310e1c9aa, type: 3}
+  - {fileID: -803896957, guid: 1b03af29c9959a34caa5cd8310e1c9aa, type: 3}
+  - {fileID: 194131656, guid: 1b03af29c9959a34caa5cd8310e1c9aa, type: 3}
+  - {fileID: -1945432735, guid: 1b03af29c9959a34caa5cd8310e1c9aa, type: 3}
+  - {fileID: -1555786660, guid: 1b03af29c9959a34caa5cd8310e1c9aa, type: 3}
+  - {fileID: 2143463487, guid: 1b03af29c9959a34caa5cd8310e1c9aa, type: 3}
+  m_MinSpeed: 6
+  m_MaxSpeed: 6
+  m_AnimationStartTime: 0
+  m_AnimationStartFrame: 0
+  m_TileColliderType: 1
+  m_TileAnimationFlags: 0
