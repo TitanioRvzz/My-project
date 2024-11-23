@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Turtle
   - Ocean
+  - Obstaculo
   layers:
   - Default
   - TransparentFX

@@ -8,7 +8,7 @@ public class Gaviota : MonoBehaviour
     public float moveSpeed = 3f; 
     private int currentWaypointIndex = 0;  
     private bool isMovingForward = true;  
-    public Collider2D seagullCollider;  
+    public Collider2D ColliderGaviota;  
     public float chanceToActivateCollider = 0.5f;
 
     void Start()
@@ -52,22 +52,22 @@ public class Gaviota : MonoBehaviour
         float randomValue = Random.value;  
         if (randomValue <= chanceToActivateCollider)
         {
-            seagullCollider.enabled = true; 
-            Debug.Log("Collider activado, la gaviota puede destruir la tortuga.");
+            ColliderGaviota.enabled = true; 
+          
         }
         else
         {
-            seagullCollider.enabled = false;  
-            Debug.Log("Collider no activado, la gaviota no puede destruir la tortuga.");
+            ColliderGaviota.enabled = false;  
+           
         }
     }
     private void  OnCollisionEnter2D(Collision2D collision)
     {
-        if (seagullCollider.enabled && collision.gameObject.CompareTag("Turtle"))
+        if (ColliderGaviota.enabled && collision.gameObject.CompareTag("Turtle"))
         {
             Destroy(collision.gameObject);  
-            seagullCollider.enabled = false;  
-            Debug.Log("Tortuga destruida.");
+            ColliderGaviota.enabled = false;  
+           
         }
     }
 }

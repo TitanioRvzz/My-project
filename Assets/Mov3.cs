@@ -31,10 +31,8 @@ public class Mov3 : MonoBehaviour
     {
         if (!moviendo)
         {
-            // Capturar input de movimiento
+           
             Vector2 input = new Vector2(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical"));
-
-            // Asegurar movimiento en solo una dirección a la vez
             if (Mathf.Abs(input.x) > Mathf.Abs(input.y))
             {
                 input.y = 0;
@@ -44,20 +42,19 @@ public class Mov3 : MonoBehaviour
                 input.x = 0;
             }
 
-            // Si se presiona una tecla válida, intentar mover
             if (input != Vector2.zero)
             {
                 Vector3Int moveDirection = new Vector3Int(Mathf.RoundToInt(input.x), Mathf.RoundToInt(input.y), 0);
                 Vector3Int newCell = targetCell + moveDirection;
 
-                // Verificar colisión con obstáculos
+              
                 if (!Physics2D.OverlapCircle(terrenoTilemap.GetCellCenterWorld(newCell) + (Vector3)offsetpunto, Radio0, obstaculo))
                 {
                     targetCell = newCell;
                     StartCoroutine(MoveToCell(terrenoTilemap.GetCellCenterWorld(newCell)));
                 }
 
-                // Actualizar animación y orientación
+                // Actualizar animaciï¿½n y orientaciï¿½n
                 if (input.x != 0)
                 {
                     anim.SetBool("Walk", true);
@@ -94,7 +91,7 @@ public class Mov3 : MonoBehaviour
         transform.position = targetPosition;
         moviendo = false;
 
-        // Actualizar tiles al llegar a la nueva posición
+        // Actualizar tiles al llegar a la nueva posiciï¿½n
         UpdateTile();
     }
 
