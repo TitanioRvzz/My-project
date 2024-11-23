@@ -16,16 +16,16 @@ public class Mov3 : MonoBehaviour
     [SerializeField] Slider humedadSlider;
     [SerializeField] LayerMask aguaLayer;
     [SerializeField] Animator anim;
-
-    private Vector3Int puntodemov; // Posición del tile objetivo
-    private bool moviendo = false; // Controla si el jugador está en movimiento
-    private Vector2 lastMoveDirection; // Última dirección en la que se movió el jugador
+    [SerializeField] Rigidbody2D rb;
+    private Vector3Int puntodemov;
+    private bool moviendo = false;
+    private Vector2 lastMoveDirection;
 
     private void Start()
     {
         anim = GetComponent<Animator>();
+        rb = GetComponent<Rigidbody2D>();
 
-        // Centrar al jugador en el tile inicial
         puntodemov = terrenoTilemap.WorldToCell(transform.position);
         transform.position = terrenoTilemap.GetCellCenterWorld(puntodemov);
 
@@ -34,13 +34,31 @@ public class Mov3 : MonoBehaviour
 
     void Update()
     {
-        // Solo permitir entrada de movimiento si no está moviéndose
+        if (Input.GetKey(KeyCode.Space))
+        {
+            anim.SetBool("Hit", true);
+            HitPlayerAttack();
+        }
+        else
+        {
+            anim.SetBool("Hit", false);
+        }
+
+        rb.velocity = Speed * Time.deltaTime * new Vector2(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical"));
+        anim.SetFloat("Xinput", rb.velocity.x);
+        anim.SetFloat("Yinput", rb.velocity.y);
+
+        if (Input.GetAxisRaw("Horizontal") == 1 || Input.GetAxisRaw("Horizontal") == -1 || Input.GetAxisRaw("Vertical") == 1 || Input.GetAxisRaw("Vertical") == -1)
+        {
+            anim.SetFloat("lastMoveX", Input.GetAxisRaw("Horizontal"));
+            anim.SetFloat("lastMoveY", Input.GetAxisRaw("Vertical"));
+        }
+
         if (!moviendo)
         {
             float moveX = Input.GetAxisRaw("Horizontal");
             float moveY = Input.GetAxisRaw("Vertical");
 
-            // Detectar movimiento en una sola dirección (prioridad horizontal sobre vertical)
             if (moveX != 0)
             {
                 lastMoveDirection = new Vector2(moveX, 0);
@@ -51,21 +69,16 @@ public class Mov3 : MonoBehaviour
             }
             else
             {
-                anim.SetBool("Walk", false);
                 return; // No hay movimiento, salir del método
             }
 
-            // Calcular el próximo tile objetivo
             Vector3Int nextCell = puntodemov + new Vector3Int((int)lastMoveDirection.x, (int)lastMoveDirection.y, 0);
 
-            // Validar que el próximo tile no tenga obstáculos
             if (!Physics2D.OverlapCircle(terrenoTilemap.GetCellCenterWorld(nextCell), Radio0, obstaculo))
             {
                 puntodemov = nextCell; // Actualizar el objetivo del movimiento
                 moviendo = true;
-                anim.SetBool("Walk", true);
 
-                // Cambiar dirección visual (flipX)
                 if (lastMoveDirection.x > 0)
                     gameObject.GetComponent<SpriteRenderer>().flipX = true;
                 else if (lastMoveDirection.x < 0)
@@ -73,19 +86,16 @@ public class Mov3 : MonoBehaviour
             }
         }
 
-        // Movimiento hacia el tile objetivo
         if (moviendo)
         {
             Vector3 targetPosition = terrenoTilemap.GetCellCenterWorld(puntodemov);
             transform.position = Vector2.MoveTowards(transform.position, targetPosition, Speed * Time.deltaTime);
 
-            // Comprobar si se ha alcanzado el centro del tile
             if (Vector2.Distance(transform.position, targetPosition) < 0.01f)
             {
                 transform.position = targetPosition; // Alinear posición exacta
                 moviendo = false;
 
-                // Verificar si el jugador está en agua para rellenar la barra de humedad
                 if (Physics2D.OverlapCircle(transform.position, Radio0, aguaLayer))
                 {
                     humedadSlider.value = humedadSlider.maxValue;
@@ -107,15 +117,23 @@ public class Mov3 : MonoBehaviour
                 }
             }
         }
+    }
 
-        // Ataque del jugador
-        if (Input.GetKeyDown(KeyCode.Space))
+    private void OnTriggerEnter2D(Collider2D other)
+    {
+        if (other.gameObject.CompareTag("Water"))
         {
-            HitPlayerAttack();
-            anim.SetTrigger("Hit");
+            anim.SetBool("InWater", true);
         }
     }
 
+    private void OnTriggerExit2D(Collider2D other)
+    {
+        if (other.gameObject.CompareTag("Water"))
+        {
+            anim.SetBool("InWater", false);
+        }
+    }
     private void HitPlayerAttack()
     {
         Vector2 attackPosition = (Vector2)transform.position + lastMoveDirection;
