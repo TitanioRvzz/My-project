@@ -1,0 +1,786 @@
+fileFormatVersion: 2
+guid: 601341c9313b8b34e9a70e174268756d
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 7005049467759069338
+    second: GRId_001_0
+  - first:
+      213: -8383969258871713652
+    second: GRId_001_1
+  - first:
+      213: -8192064718515202152
+    second: GRId_001_2
+  - first:
+      213: 9085724214001521556
+    second: GRId_001_3
+  - first:
+      213: -6120287090965349207
+    second: GRId_001_4
+  - first:
+      213: -3317083598490502193
+    second: GRId_001_5
+  - first:
+      213: -3693481574197469611
+    second: GRId_001_6
+  - first:
+      213: 1667334402065337264
+    second: GRId_001_7
+  - first:
+      213: 3507797057118202330
+    second: GRId_001_8
+  - first:
+      213: 2759316289518379929
+    second: GRId_001_9
+  - first:
+      213: -1695147204503981717
+    second: GRId_001_10
+  - first:
+      213: 5866588987331589450
+    second: GRId_001_11
+  - first:
+      213: 511517420563006197
+    second: GRId_001_12
+  - first:
+      213: -6457978857507239311
+    second: GRId_001_13
+  - first:
+      213: -6583995704874849555
+    second: GRId_001_14
+  - first:
+      213: -5120108377249465105
+    second: GRId_001_15
+  - first:
+      213: -5788901583883973080
+    second: GRId_001_16
+  - first:
+      213: 6579306527514184554
+    second: GRId_001_17
+  - first:
+      213: -8151245906372910543
+    second: GRId_001_18
+  - first:
+      213: -5120093356179724737
+    second: GRId_001_19
+  - first:
+      213: -8710758129745622171
+    second: GRId_001_20
+  - first:
+      213: 4107654446607793224
+    second: GRId_001_21
+  - first:
+      213: -8017525770145766879
+    second: GRId_001_22
+  - first:
+      213: 5657992424213568301
+    second: GRId_001_23
+  - first:
+      213: -8517664397154991280
+    second: GRId_001_24
+  - first:
+      213: 2444139312914418739
+    second: GRId_001_25
+  - first:
+      213: 2980457914239681686
+    second: GRId_001_26
+  - first:
+      213: -7658710622219766365
+    second: GRId_001_27
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 3
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: GRId_001_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 447
+        width: 257
+        height: 193
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a9881d7606fe63160800000000000000
+      internalID: 7005049467759069338
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GRId_001_1
+      rect:
+        serializedVersion: 2
+        x: 259
+        y: 583
+        width: 60
+        height: 49
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c801825116826ab80800000000000000
+      internalID: -8383969258871713652
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GRId_001_2
+      rect:
+        serializedVersion: 2
+        x: 327
+        y: 586
+        width: 50
+        height: 46
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 89714ebba80ff4e80800000000000000
+      internalID: -8192064718515202152
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GRId_001_3
+      rect:
+        serializedVersion: 2
+        x: 388
+        y: 584
+        width: 52
+        height: 54
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 493d9bec80af61e70800000000000000
+      internalID: 9085724214001521556
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GRId_001_4
+      rect:
+        serializedVersion: 2
+        x: 452
+        y: 584
+        width: 52
+        height: 50
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9acf993415f501ba0800000000000000
+      internalID: -6120287090965349207
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GRId_001_5
+      rect:
+        serializedVersion: 2
+        x: 517
+        y: 584
+        width: 52
+        height: 50
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: fcbf2b5ba0a57f1d0800000000000000
+      internalID: -3317083598490502193
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GRId_001_6
+      rect:
+        serializedVersion: 2
+        x: 592
+        y: 589
+        width: 37
+        height: 37
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 55e5281c31e1ebcc0800000000000000
+      internalID: -3693481574197469611
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GRId_001_7
+      rect:
+        serializedVersion: 2
+        x: 596
+        y: 589
+        width: 9
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0bb84e40ecf832710800000000000000
+      internalID: 1667334402065337264
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GRId_001_8
+      rect:
+        serializedVersion: 2
+        x: 656
+        y: 589
+        width: 37
+        height: 36
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ad9e0bd96d23ea030800000000000000
+      internalID: 3507797057118202330
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GRId_001_9
+      rect:
+        serializedVersion: 2
+        x: 263
+        y: 514
+        width: 50
+        height: 58
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 99321bbbb8f0b4620800000000000000
+      internalID: 2759316289518379929
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GRId_001_10
+      rect:
+        serializedVersion: 2
+        x: 327
+        y: 515
+        width: 51
+        height: 59
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b613b894990a978e0800000000000000
+      internalID: -1695147204503981717
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GRId_001_11
+      rect:
+        serializedVersion: 2
+        x: 391
+        y: 515
+        width: 51
+        height: 59
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a453e19f99f4a6150800000000000000
+      internalID: 5866588987331589450
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GRId_001_12
+      rect:
+        serializedVersion: 2
+        x: 467
+        y: 540
+        width: 26
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5f205154266491700800000000000000
+      internalID: 511517420563006197
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GRId_001_13
+      rect:
+        serializedVersion: 2
+        x: 534
+        y: 537
+        width: 25
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 17a4c47e176a066a0800000000000000
+      internalID: -6457978857507239311
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GRId_001_14
+      rect:
+        serializedVersion: 2
+        x: 265
+        y: 447
+        width: 49
+        height: 66
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: deaac383ac2f0a4a0800000000000000
+      internalID: -6583995704874849555
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GRId_001_15
+      rect:
+        serializedVersion: 2
+        x: 327
+        y: 447
+        width: 44
+        height: 66
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: fec3b82fe88b1f8b0800000000000000
+      internalID: -5120108377249465105
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GRId_001_16
+      rect:
+        serializedVersion: 2
+        x: 394
+        y: 447
+        width: 51
+        height: 66
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 82e46ec2ea0b9afa0800000000000000
+      internalID: -5788901583883973080
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GRId_001_17
+      rect:
+        serializedVersion: 2
+        x: 447
+        y: 447
+        width: 514
+        height: 63
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a6b44e89d646e4b50800000000000000
+      internalID: 6579306527514184554
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GRId_001_18
+      rect:
+        serializedVersion: 2
+        x: 22
+        y: 408
+        width: 20
+        height: 19
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 13229c90905f0ee80800000000000000
+      internalID: -8151245906372910543
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GRId_001_19
+      rect:
+        serializedVersion: 2
+        x: 92
+        y: 407
+        width: 17
+        height: 17
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f36e1105836c1f8b0800000000000000
+      internalID: -5120093356179724737
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GRId_001_20
+      rect:
+        serializedVersion: 2
+        x: 153
+        y: 410
+        width: 18
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 56b8a20f1ab2d1780800000000000000
+      internalID: -8710758129745622171
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GRId_001_21
+      rect:
+        serializedVersion: 2
+        x: 202
+        y: 403
+        width: 46
+        height: 26
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 84c7c16b4f1510930800000000000000
+      internalID: 4107654446607793224
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GRId_001_22
+      rect:
+        serializedVersion: 2
+        x: 272
+        y: 393
+        width: 33
+        height: 42
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 122ebec6ac60cb090800000000000000
+      internalID: -8017525770145766879
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GRId_001_23
+      rect:
+        serializedVersion: 2
+        x: 333
+        y: 396
+        width: 45
+        height: 37
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d2bd91be12a358e40800000000000000
+      internalID: 5657992424213568301
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GRId_001_24
+      rect:
+        serializedVersion: 2
+        x: 388
+        y: 394
+        width: 60
+        height: 41
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 053c59bfb5d2bc980800000000000000
+      internalID: -8517664397154991280
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GRId_001_25
+      rect:
+        serializedVersion: 2
+        x: 467
+        y: 387
+        width: 85
+        height: 59
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 33cc4d761c35be120800000000000000
+      internalID: 2444139312914418739
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GRId_001_26
+      rect:
+        serializedVersion: 2
+        x: 202
+        y: 340
+        width: 46
+        height: 26
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 694024e8ea6bc5920800000000000000
+      internalID: 2980457914239681686
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GRId_001_27
+      rect:
+        serializedVersion: 2
+        x: 202
+        y: 276
+        width: 46
+        height: 26
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3a57415444bc6b590800000000000000
+      internalID: -7658710622219766365
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: 
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    nameFileIdTable: {}
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

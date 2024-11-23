@@ -1,0 +1,514 @@
+fileFormatVersion: 2
+guid: 337ac0d195cd9fe46a94e36723c993ca
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 2787188716559901024
+    second: gaviotas_0001_0
+  - first:
+      213: 2649535737744436043
+    second: gaviotas_0001_1
+  - first:
+      213: 6144370119084931251
+    second: gaviotas_0001_2
+  - first:
+      213: 5979604723687927843
+    second: gaviotas_0001_3
+  - first:
+      213: 2192586664727314362
+    second: gaviotas_0001_4
+  - first:
+      213: -2358554029630755566
+    second: gaviotas_0001_5
+  - first:
+      213: 4520429333595072481
+    second: gaviotas_0001_6
+  - first:
+      213: -5843974234320529043
+    second: gaviotas_0001_7
+  - first:
+      213: 3373434965950670455
+    second: gaviotas_0001_8
+  - first:
+      213: -8776686089545906048
+    second: gaviotas_0001_9
+  - first:
+      213: -4072762557993105732
+    second: gaviotas_0001_10
+  - first:
+      213: -1674555182298201680
+    second: gaviotas_0001_11
+  - first:
+      213: -3027698777040412496
+    second: gaviotas_0001_12
+  - first:
+      213: 6710386021231441147
+    second: gaviotas_0001_13
+  - first:
+      213: 7186912144616963135
+    second: gaviotas_0001_14
+  - first:
+      213: -8303450522914117514
+    second: gaviotas_0001_15
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 64
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 3
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: gaviotas_0001_0
+      rect:
+        serializedVersion: 2
+        x: 11
+        y: 195
+        width: 35
+        height: 59
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 061a78cde551ea620800000000000000
+      internalID: 2787188716559901024
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: gaviotas_0001_1
+      rect:
+        serializedVersion: 2
+        x: 75
+        y: 195
+        width: 35
+        height: 59
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b4ba5f337ba05c420800000000000000
+      internalID: 2649535737744436043
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: gaviotas_0001_2
+      rect:
+        serializedVersion: 2
+        x: 139
+        y: 195
+        width: 35
+        height: 59
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3b8f49ca110354550800000000000000
+      internalID: 6144370119084931251
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: gaviotas_0001_3
+      rect:
+        serializedVersion: 2
+        x: 203
+        y: 195
+        width: 35
+        height: 59
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 320baac90d2dbf250800000000000000
+      internalID: 5979604723687927843
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: gaviotas_0001_4
+      rect:
+        serializedVersion: 2
+        x: 2
+        y: 142
+        width: 60
+        height: 41
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: abf745a64f1ad6e10800000000000000
+      internalID: 2192586664727314362
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: gaviotas_0001_5
+      rect:
+        serializedVersion: 2
+        x: 66
+        y: 147
+        width: 60
+        height: 36
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 21dea403b9bb44fd0800000000000000
+      internalID: -2358554029630755566
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: gaviotas_0001_6
+      rect:
+        serializedVersion: 2
+        x: 130
+        y: 142
+        width: 60
+        height: 41
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1e7a035578acbbe30800000000000000
+      internalID: 4520429333595072481
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: gaviotas_0001_7
+      rect:
+        serializedVersion: 2
+        x: 194
+        y: 147
+        width: 60
+        height: 37
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d691ac6856806eea0800000000000000
+      internalID: -5843974234320529043
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: gaviotas_0001_8
+      rect:
+        serializedVersion: 2
+        x: 2
+        y: 78
+        width: 60
+        height: 38
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7762f527a39d0de20800000000000000
+      internalID: 3373434965950670455
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: gaviotas_0001_9
+      rect:
+        serializedVersion: 2
+        x: 66
+        y: 83
+        width: 60
+        height: 33
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 088018f9082f23680800000000000000
+      internalID: -8776686089545906048
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: gaviotas_0001_10
+      rect:
+        serializedVersion: 2
+        x: 130
+        y: 78
+        width: 60
+        height: 38
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: cb64f4c2804aa77c0800000000000000
+      internalID: -4072762557993105732
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: gaviotas_0001_11
+      rect:
+        serializedVersion: 2
+        x: 194
+        y: 83
+        width: 60
+        height: 33
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0b183521fe8c2c8e0800000000000000
+      internalID: -1674555182298201680
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: gaviotas_0001_12
+      rect:
+        serializedVersion: 2
+        x: 3
+        y: 11
+        width: 59
+        height: 49
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0b02f93f0047bf5d0800000000000000
+      internalID: -3027698777040412496
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: gaviotas_0001_13
+      rect:
+        serializedVersion: 2
+        x: 66
+        y: 16
+        width: 60
+        height: 44
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: bf43f3d7884102d50800000000000000
+      internalID: 6710386021231441147
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: gaviotas_0001_14
+      rect:
+        serializedVersion: 2
+        x: 131
+        y: 11
+        width: 59
+        height: 49
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f3cb5d3848a0db360800000000000000
+      internalID: 7186912144616963135
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: gaviotas_0001_15
+      rect:
+        serializedVersion: 2
+        x: 194
+        y: 16
+        width: 60
+        height: 44
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6782ca33eb734cc80800000000000000
+      internalID: -8303450522914117514
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: b679d8468dfeb664daa6beae39487f4d
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    nameFileIdTable:
+      gaviotas_0001_0: 2787188716559901024
+      gaviotas_0001_1: 2649535737744436043
+      gaviotas_0001_10: -4072762557993105732
+      gaviotas_0001_11: -1674555182298201680
+      gaviotas_0001_12: -3027698777040412496
+      gaviotas_0001_13: 6710386021231441147
+      gaviotas_0001_14: 7186912144616963135
+      gaviotas_0001_15: -8303450522914117514
+      gaviotas_0001_2: 6144370119084931251
+      gaviotas_0001_3: 5979604723687927843
+      gaviotas_0001_4: 2192586664727314362
+      gaviotas_0001_5: -2358554029630755566
+      gaviotas_0001_6: 4520429333595072481
+      gaviotas_0001_7: -5843974234320529043
+      gaviotas_0001_8: 3373434965950670455
+      gaviotas_0001_9: -8776686089545906048
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

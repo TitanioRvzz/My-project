@@ -4,22 +4,24 @@ using UnityEngine.Tilemaps;
 
 public class Turtle2 : MonoBehaviour
 {
+     public int points = 8;
     [SerializeField] Tilemap terrenoTilemap;             
     [SerializeField] RuleTile arenaMojadaRuleTile;        
     [SerializeField] TileBase aguaTile;                    
-    [SerializeField] float moveInterval = 1f;            
+    [SerializeField] float moveInterval = 1f;    
+    public SpriteRenderer spriteRenderer;        
     private Vector3Int currentCell;                       
     public Vector2 respawnposition;
     public float dilayrespawn = 1f;  
     public GameObject objectToClone;
     public float probabilityToCloneTwo = 0.2f;
     public Transform respawnPoint, secondpoint;
-
-
+    [SerializeField] int moveHor = 1;          
     private void Start()
     {
+        
         currentCell = terrenoTilemap.WorldToCell(transform.position);
-        StartCoroutine(MoveRoutine()); 
+        StartCoroutine(MoveRoutine());  
     }
 
     private IEnumerator MoveRoutine()
@@ -27,6 +29,7 @@ public class Turtle2 : MonoBehaviour
         while (true)
         {
             yield return new WaitForSeconds(moveInterval);
+
             if (IsOnMojadaTile())
             {
                 MoveAlongMojadaPath();
@@ -40,43 +43,63 @@ public class Turtle2 : MonoBehaviour
 
     private bool IsOnMojadaTile()
     {
+      
         TileBase tileAtCurrentCell = terrenoTilemap.GetTile(currentCell);
         return tileAtCurrentCell != null && tileAtCurrentCell == arenaMojadaRuleTile;
     }
 
     private void MoveAlongMojadaPath()
     {
-        Vector3Int[] directions = { Vector3Int.down, Vector3Int.left, Vector3Int.right };
+      
+        Vector3Int[] directions = {Vector3Int.right, Vector3Int.left};  
+
 
         bool moved = false;
-        foreach (var direction in directions)
+
+        if (tileAtAdjacentCell(Vector3Int.down) != null && tileAtAdjacentCell(Vector3Int.down) == arenaMojadaRuleTile)
         {
-            Vector3Int adjacentCell = currentCell + direction;
-            TileBase tileAtAdjacentCell = terrenoTilemap.GetTile(adjacentCell);
-
-            if (tileAtAdjacentCell != null && tileAtAdjacentCell == arenaMojadaRuleTile)
+          
+            currentCell = currentCell + Vector3Int.down;
+            transform.position = terrenoTilemap.GetCellCenterWorld(currentCell);
+            print("movimiento hacia " + Vector3Int.down);
+            moved = true;
+        }
+        else
+        {
+            if (tileAtAdjacentCell(Vector3Int.left * moveHor) != null && tileAtAdjacentCell(Vector3Int.left * moveHor) == arenaMojadaRuleTile)
             {
-                currentCell = adjacentCell;
+                currentCell = currentCell + Vector3Int.left * moveHor;
                 transform.position = terrenoTilemap.GetCellCenterWorld(currentCell);
+                print("movimiento hacia " + Vector3Int.left * moveHor);
                 moved = true;
-                break;
             }
-
-            if (!moved)
+            else
             {
-             CheckForWater();
+                moveHor *= -1;
             }
         }
+
+        if (!moved)
+        {
+            
+            CheckForWater();
+        }
+    }
+
+    private TileBase tileAtAdjacentCell( Vector3Int dir)
+    {
+        Vector3Int adjacentCell = currentCell + dir;
+        return terrenoTilemap.GetTile(adjacentCell);
     }
 
     private void MoveRandomly()
     {
+       
         Vector3Int[] randomDirections = { Vector3Int.up, Vector3Int.down, Vector3Int.left, Vector3Int.right };
         Vector3Int randomDirection = randomDirections[Random.Range(0, randomDirections.Length)];
-
         Vector3Int adjacentCell = currentCell + randomDirection;
         TileBase tileAtAdjacentCell = terrenoTilemap.GetTile(adjacentCell);
-        if (tileAtAdjacentCell != null && tileAtAdjacentCell == arenaMojadaRuleTile)
+              if (tileAtAdjacentCell != null && tileAtAdjacentCell == arenaMojadaRuleTile)
         {
             currentCell = adjacentCell;
             transform.position = terrenoTilemap.GetCellCenterWorld(currentCell);
@@ -102,7 +125,6 @@ public class Turtle2 : MonoBehaviour
             }
         }
     }
-
 private void OnTriggerEnter2D(Collider2D other)
     {
     if(other.gameObject.CompareTag("Ocean"))
