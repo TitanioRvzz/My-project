@@ -564,9 +564,10 @@ GameObject:
   m_Component:
   - component: {fileID: 369657916}
   - component: {fileID: 369657921}
-  - component: {fileID: 369657920}
+  - component: {fileID: 369657923}
   - component: {fileID: 369657919}
   - component: {fileID: 369657918}
+  - component: {fileID: 369657922}
   m_Layer: 3
   m_Name: Tortuga (1)
   m_TagString: Turtle
@@ -662,37 +663,6 @@ BoxCollider2D:
   m_AutoTiling: 0
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
---- !u!114 &369657920
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 369657915}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f6f2d86ad0282c943aba48d583cc5823, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  points: 8
-  arenaMojadaRuleTile: {fileID: 11400000, guid: e943a943c12cdb74f835602427aed6e7, type: 2}
-  aguaTile: {fileID: 11400000, guid: 680f652ee125f0541914b362f4df47db, type: 2}
-  moveInterval: 2.5
-  respawnposition: {x: 0, y: 0}
-  dilayrespawn: 1
-  objectToClone: {fileID: 369657915}
-  probabilityToCloneTwo: 0.2
-  respawnPoint: {fileID: 1444072429}
-  secondpoint: {fileID: 1222108129}
-  moveHor: 1
-  isHit: 0
-  tilemap: {fileID: 1617195118}
-  obstaculo:
-    serializedVersion: 2
-    m_Bits: 14
-  Radio0: 0.2
-  offsetpunto: {x: 0, y: 0}
-  jugador: {fileID: 1633228208}
 --- !u!212 &369657921
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -747,6 +717,59 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!95 &369657922
+Animator:
+  serializedVersion: 7
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 369657915}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 744893ddce1d7da4fa54f890f09b7271, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_AnimatePhysics: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &369657923
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 369657915}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4a3d7b66bc5840e4e8b6319a4d4c57fc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  points: 8
+  arenaMojadaRuleTile: {fileID: 11400000, guid: e943a943c12cdb74f835602427aed6e7, type: 2}
+  aguaTile: {fileID: 11400000, guid: 680f652ee125f0541914b362f4df47db, type: 2}
+  moveInterval: 3
+  respawnposition: {x: 0, y: 0}
+  dilayrespawn: 1
+  objectToClone: {fileID: 369657915}
+  probabilityToCloneTwo: 0.2
+  respawnPoint: {fileID: 1444072429}
+  secondpoint: {fileID: 1222108129}
+  moveHor: 1
+  isHit: 0
+  tilemap: {fileID: 1617195118}
+  obstaculo:
+    serializedVersion: 2
+    m_Bits: 15
+  Radio0: 0
+  offsetpunto: {x: 0, y: 0}
+  jugador: {fileID: 1633228208}
 --- !u!1 &456573419
 GameObject:
   m_ObjectHideFlags: 0
@@ -1856,7 +1879,7 @@ Tilemap:
       - {fileID: 1756569204, guid: 1b03af29c9959a34caa5cd8310e1c9aa, type: 3}
       - {fileID: -1764663478, guid: 1b03af29c9959a34caa5cd8310e1c9aa, type: 3}
       - {fileID: 448220843, guid: 1b03af29c9959a34caa5cd8310e1c9aa, type: 3}
-      m_AnimationSpeed: 6
+      m_AnimationSpeed: 6.0000005
       m_AnimationTimeOffset: 0
       m_Flags: 0
   - first: {x: -8, y: -5, z: 0}
@@ -2064,7 +2087,7 @@ Tilemap:
       - {fileID: 1756569204, guid: 1b03af29c9959a34caa5cd8310e1c9aa, type: 3}
       - {fileID: -1764663478, guid: 1b03af29c9959a34caa5cd8310e1c9aa, type: 3}
       - {fileID: 448220843, guid: 1b03af29c9959a34caa5cd8310e1c9aa, type: 3}
-      m_AnimationSpeed: 6
+      m_AnimationSpeed: 6.0000005
       m_AnimationTimeOffset: 0
       m_Flags: 0
   - first: {x: 5, y: -5, z: 0}
@@ -2128,7 +2151,7 @@ Tilemap:
       - {fileID: 1756569204, guid: 1b03af29c9959a34caa5cd8310e1c9aa, type: 3}
       - {fileID: -1764663478, guid: 1b03af29c9959a34caa5cd8310e1c9aa, type: 3}
       - {fileID: 448220843, guid: 1b03af29c9959a34caa5cd8310e1c9aa, type: 3}
-      m_AnimationSpeed: 6
+      m_AnimationSpeed: 6.0000005
       m_AnimationTimeOffset: 0
       m_Flags: 0
   - first: {x: -9, y: -4, z: 0}
@@ -2304,7 +2327,7 @@ Tilemap:
       - {fileID: -305156838, guid: 1b03af29c9959a34caa5cd8310e1c9aa, type: 3}
       - {fileID: -11066244, guid: 1b03af29c9959a34caa5cd8310e1c9aa, type: 3}
       - {fileID: 1543171084, guid: 1b03af29c9959a34caa5cd8310e1c9aa, type: 3}
-      m_AnimationSpeed: 6.0000005
+      m_AnimationSpeed: 6
       m_AnimationTimeOffset: 0
       m_Flags: 0
   - first: {x: 2, y: -4, z: 0}
@@ -2416,7 +2439,7 @@ Tilemap:
       - {fileID: -305156838, guid: 1b03af29c9959a34caa5cd8310e1c9aa, type: 3}
       - {fileID: -11066244, guid: 1b03af29c9959a34caa5cd8310e1c9aa, type: 3}
       - {fileID: 1543171084, guid: 1b03af29c9959a34caa5cd8310e1c9aa, type: 3}
-      m_AnimationSpeed: 6
+      m_AnimationSpeed: 6.0000005
       m_AnimationTimeOffset: 0
       m_Flags: 0
   - first: {x: -9, y: -3, z: 0}
@@ -2512,7 +2535,7 @@ Tilemap:
       - {fileID: -1945432735, guid: 1b03af29c9959a34caa5cd8310e1c9aa, type: 3}
       - {fileID: -1555786660, guid: 1b03af29c9959a34caa5cd8310e1c9aa, type: 3}
       - {fileID: 2143463487, guid: 1b03af29c9959a34caa5cd8310e1c9aa, type: 3}
-      m_AnimationSpeed: 6.0000005
+      m_AnimationSpeed: 6
       m_AnimationTimeOffset: 0
       m_Flags: 0
   - first: {x: -3, y: -3, z: 0}
@@ -2656,7 +2679,7 @@ Tilemap:
       - {fileID: -1945432735, guid: 1b03af29c9959a34caa5cd8310e1c9aa, type: 3}
       - {fileID: -1555786660, guid: 1b03af29c9959a34caa5cd8310e1c9aa, type: 3}
       - {fileID: 2143463487, guid: 1b03af29c9959a34caa5cd8310e1c9aa, type: 3}
-      m_AnimationSpeed: 6
+      m_AnimationSpeed: 6.0000005
       m_AnimationTimeOffset: 0
       m_Flags: 0
   - first: {x: 6, y: -3, z: 0}
@@ -2719,7 +2742,7 @@ Tilemap:
       - {fileID: 909235511, guid: 1b03af29c9959a34caa5cd8310e1c9aa, type: 3}
       - {fileID: 1160588975, guid: 1b03af29c9959a34caa5cd8310e1c9aa, type: 3}
       - {fileID: 1641513586, guid: 1b03af29c9959a34caa5cd8310e1c9aa, type: 3}
-      m_AnimationSpeed: 5.0000005
+      m_AnimationSpeed: 5
       m_AnimationTimeOffset: 0
       m_Flags: 0
   - first: {x: -8, y: -2, z: 0}
@@ -2794,7 +2817,7 @@ Tilemap:
       - {fileID: 909235511, guid: 1b03af29c9959a34caa5cd8310e1c9aa, type: 3}
       - {fileID: 1160588975, guid: 1b03af29c9959a34caa5cd8310e1c9aa, type: 3}
       - {fileID: 1641513586, guid: 1b03af29c9959a34caa5cd8310e1c9aa, type: 3}
-      m_AnimationSpeed: 5.0000005
+      m_AnimationSpeed: 5
       m_AnimationTimeOffset: 0
       m_Flags: 0
   - first: {x: -3, y: -2, z: 0}
@@ -2824,7 +2847,7 @@ Tilemap:
       - {fileID: 909235511, guid: 1b03af29c9959a34caa5cd8310e1c9aa, type: 3}
       - {fileID: 1160588975, guid: 1b03af29c9959a34caa5cd8310e1c9aa, type: 3}
       - {fileID: 1641513586, guid: 1b03af29c9959a34caa5cd8310e1c9aa, type: 3}
-      m_AnimationSpeed: 5.0000005
+      m_AnimationSpeed: 5
       m_AnimationTimeOffset: 0
       m_Flags: 0
   - first: {x: -1, y: -2, z: 0}
@@ -4848,22 +4871,14 @@ MonoBehaviour:
   points: 8
   arenaMojadaRuleTile: {fileID: 11400000, guid: e943a943c12cdb74f835602427aed6e7, type: 2}
   aguaTile: {fileID: 11400000, guid: 680f652ee125f0541914b362f4df47db, type: 2}
-  moveInterval: 2.5
-  respawnposition: {x: 0, y: 0}
-  dilayrespawn: 1
-  objectToClone: {fileID: 1631777446}
-  probabilityToCloneTwo: 0.2
-  respawnPoint: {fileID: 1444072429}
-  secondpoint: {fileID: 1222108129}
-  moveHor: 1
-  isHit: 0
+  moveInterval: 4
   tilemap: {fileID: 1617195118}
   obstaculo:
     serializedVersion: 2
-    m_Bits: 14
-  Radio0: 0.2
+    m_Bits: 15
+  Radio0: 0.6
   offsetpunto: {x: 0, y: 0}
-  jugador: {fileID: 1633228208}
+  moveHor: 1
 --- !u!50 &1631777452
 Rigidbody2D:
   serializedVersion: 4
@@ -4901,7 +4916,7 @@ Animator:
   m_GameObject: {fileID: 1631777446}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 744893ddce1d7da4fa54f890f09b7271, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -4998,7 +5013,7 @@ Transform:
   m_GameObject: {fileID: 1633228205}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -3.76, y: 1.15, z: 0}
+  m_LocalPosition: {x: -3.4999998, y: 1.5, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
