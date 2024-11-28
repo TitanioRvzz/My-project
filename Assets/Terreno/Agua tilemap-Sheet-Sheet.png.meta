@@ -114,6 +114,19 @@ TextureImporter:
     ignorePlatformSupport: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Windows Store Apps
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
     sprites:
@@ -274,7 +287,14 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      Agua tilemap-Sheet-Sheet_0: -3182755166074181106
+      Agua tilemap-Sheet-Sheet_1: 1389767625791369139
+      Agua tilemap-Sheet-Sheet_2: 5158187395520463065
+      Agua tilemap-Sheet-Sheet_3: -7000246399385133853
+      Agua tilemap-Sheet-Sheet_4: -4168722341501564547
+      Agua tilemap-Sheet-Sheet_5: 6389651177798914811
+      Agua tilemap-Sheet-Sheet_6: -2015398642065338749
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
