@@ -24,7 +24,6 @@ public class Water : MonoBehaviour
         }
     }
 
-
     void UpdateScoreUI()
     {
         scoreText.text = "Puntaje: " + totalScore;

@@ -1,4 +1,4 @@
-using System.Collections;
+ï»¿using System.Collections;
 using UnityEngine;
 using UnityEngine.Tilemaps;
 
@@ -87,7 +87,7 @@ public class Turtle2 : MonoBehaviour
             CheckForWater();
         }
 
-        anim.SetBool("Walk", false); // Detener animación si no hay tiles mojados alrededor
+        anim.SetBool("Walk", false); // Detener animaciï¿½n si no hay tiles mojados alrededor
     }
     private TileBase TileAtAdjacentCell(Vector3Int dir)
     {
@@ -125,11 +125,11 @@ public class Turtle2 : MonoBehaviour
 
             // Cambiar velocidad aleatoriamente
             moveInterval = Random.Range(3f, 5f);
-           // anim.SetBool("Walk", true);
+            // anim.SetBool("Walk", true);
         }
         else
         {
-          //  anim.SetBool("Walk", false); // Detener animación si no se mueve
+            //  anim.SetBool("Walk", false); // Detener animaciï¿½n si no se mueve
         }
     }
 
@@ -137,7 +137,7 @@ public class Turtle2 : MonoBehaviour
     {
         TileBase tileAtCell = tilemap.GetTile(cell);
         if (tileAtCell == null) return false; // No hay tile en esa celda
-        if (Physics2D.OverlapCircle(tilemap.GetCellCenterWorld(cell) + (Vector3)offsetpunto, Radio0, obstaculo)) return false; // Obstáculo presente
+        if (Physics2D.OverlapCircle(tilemap.GetCellCenterWorld(cell) + (Vector3)offsetpunto, Radio0, obstaculo)) return false; // Obstï¿½culo presente
 
         return true; // Puede moverse
     }
@@ -146,7 +146,7 @@ public class Turtle2 : MonoBehaviour
     {
         if (other.gameObject.CompareTag("Water"))
         {
-            Debug.Log("Tortuga alcanzó el agua y fue salvada.");
+            Debug.Log("Tortuga alcanzï¿½ el agua y fue salvada.");
             Destroy(gameObject);
         }
     }
