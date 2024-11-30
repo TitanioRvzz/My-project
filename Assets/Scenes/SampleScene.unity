@@ -1003,25 +1003,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4a3d7b66bc5840e4e8b6319a4d4c57fc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  points: 8
-  arenaMojadaRuleTile: {fileID: 11400000, guid: e943a943c12cdb74f835602427aed6e7, type: 2}
+  baseSpeed: 2
+  mojadaSpeedMultiplier: 1.5
+  arenaMojadaTile: {fileID: 11400000, guid: e943a943c12cdb74f835602427aed6e7, type: 2}
   aguaTile: {fileID: 11400000, guid: 680f652ee125f0541914b362f4df47db, type: 2}
-  moveInterval: 3
-  respawnposition: {x: 0, y: 0}
-  dilayrespawn: 1
-  objectToClone: {fileID: 369657915}
-  probabilityToCloneTwo: 0.2
-  respawnPoint: {fileID: 1444072429}
-  secondpoint: {fileID: 1222108129}
-  moveHor: 1
-  isHit: 0
   tilemap: {fileID: 1617195118}
   obstaculo:
     serializedVersion: 2
     m_Bits: 15
-  Radio0: 0
-  offsetpunto: {x: 0, y: 0}
-  jugador: {fileID: 1633228208}
+  Radio0: 0.5
+  respawnProbability: 0.5
+  tortugaPrefab: {fileID: 369657915}
+  respawnPoint: {fileID: 1222108129}
+  anim: {fileID: 369657922}
+  rb: {fileID: 369657918}
 --- !u!1 &430717303
 GameObject:
   m_ObjectHideFlags: 0
@@ -2564,7 +2559,7 @@ Tilemap:
       - {fileID: 1756569204, guid: 1b03af29c9959a34caa5cd8310e1c9aa, type: 3}
       - {fileID: -1764663478, guid: 1b03af29c9959a34caa5cd8310e1c9aa, type: 3}
       - {fileID: 448220843, guid: 1b03af29c9959a34caa5cd8310e1c9aa, type: 3}
-      m_AnimationSpeed: 6
+      m_AnimationSpeed: 6.0000005
       m_AnimationTimeOffset: 0
       m_Flags: 0
   - first: {x: 4, y: -5, z: 0}
@@ -2948,7 +2943,7 @@ Tilemap:
       - {fileID: -1945432735, guid: 1b03af29c9959a34caa5cd8310e1c9aa, type: 3}
       - {fileID: -1555786660, guid: 1b03af29c9959a34caa5cd8310e1c9aa, type: 3}
       - {fileID: 2143463487, guid: 1b03af29c9959a34caa5cd8310e1c9aa, type: 3}
-      m_AnimationSpeed: 6
+      m_AnimationSpeed: 6.0000005
       m_AnimationTimeOffset: 0
       m_Flags: 0
   - first: {x: -8, y: -3, z: 0}
@@ -3012,7 +3007,7 @@ Tilemap:
       - {fileID: -1945432735, guid: 1b03af29c9959a34caa5cd8310e1c9aa, type: 3}
       - {fileID: -1555786660, guid: 1b03af29c9959a34caa5cd8310e1c9aa, type: 3}
       - {fileID: 2143463487, guid: 1b03af29c9959a34caa5cd8310e1c9aa, type: 3}
-      m_AnimationSpeed: 6.0000005
+      m_AnimationSpeed: 6
       m_AnimationTimeOffset: 0
       m_Flags: 0
   - first: {x: -4, y: -3, z: 0}
@@ -3124,7 +3119,7 @@ Tilemap:
       - {fileID: -1945432735, guid: 1b03af29c9959a34caa5cd8310e1c9aa, type: 3}
       - {fileID: -1555786660, guid: 1b03af29c9959a34caa5cd8310e1c9aa, type: 3}
       - {fileID: 2143463487, guid: 1b03af29c9959a34caa5cd8310e1c9aa, type: 3}
-      m_AnimationSpeed: 6
+      m_AnimationSpeed: 6.0000005
       m_AnimationTimeOffset: 0
       m_Flags: 0
   - first: {x: 3, y: -3, z: 0}
@@ -3204,7 +3199,7 @@ Tilemap:
       - {fileID: -1945432735, guid: 1b03af29c9959a34caa5cd8310e1c9aa, type: 3}
       - {fileID: -1555786660, guid: 1b03af29c9959a34caa5cd8310e1c9aa, type: 3}
       - {fileID: 2143463487, guid: 1b03af29c9959a34caa5cd8310e1c9aa, type: 3}
-      m_AnimationSpeed: 6.0000005
+      m_AnimationSpeed: 6
       m_AnimationTimeOffset: 0
       m_Flags: 0
   - first: {x: 8, y: -3, z: 0}
@@ -7156,7 +7151,7 @@ MonoBehaviour:
   points: 8
   arenaMojadaRuleTile: {fileID: 11400000, guid: e943a943c12cdb74f835602427aed6e7, type: 2}
   aguaTile: {fileID: 11400000, guid: 680f652ee125f0541914b362f4df47db, type: 2}
-  moveInterval: 4
+  moveInterval: 5
   tilemap: {fileID: 1617195118}
   obstaculo:
     serializedVersion: 2
