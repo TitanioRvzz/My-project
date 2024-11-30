@@ -22,22 +22,20 @@ public class GAVIOTA : MonoBehaviour
         {
             if (isMovingForward)
             {
-                gameObject.GetComponent<SpriteRenderer>().flipX = false;
-
                 currentWaypointIndex += 1;
                 if (currentWaypointIndex >= waypoints.Length)
                 {
+                    gameObject.GetComponent<SpriteRenderer>().flipX = false;
                     currentWaypointIndex = waypoints.Length - 2;
                     isMovingForward = false;
                 }
             }
             else if (!isMovingForward)
             {
-                gameObject.GetComponent<SpriteRenderer>().flipX = true;
-
                 currentWaypointIndex -= 1;
                 if (currentWaypointIndex < 0)
                 {
+                    gameObject.GetComponent<SpriteRenderer>().flipX = true;
                     currentWaypointIndex = 1;
                     isMovingForward = true;
                 }

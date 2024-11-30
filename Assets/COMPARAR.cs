@@ -2,31 +2,29 @@ using System.Collections;
 using UnityEngine;
 using UnityEngine.Tilemaps;
 
-public class COMPARAR : MonoBehaviour
+public class COMPARAR: MonoBehaviour
 {
-    public int points = 8;
-    [SerializeField] RuleTile arenaMojadaRuleTile;
+    [SerializeField] float baseSpeed = 2f; // Velocidad en arena seca
+    [SerializeField] float mojadaSpeedMultiplier = 1.5f; // Multiplicador de velocidad en arena mojada
+    [SerializeField] TileBase arenaMojadaTile;
     [SerializeField] TileBase aguaTile;
-    [SerializeField] float moveInterval = 3f;
+    [SerializeField] Tilemap tilemap;
+    [SerializeField] LayerMask obstaculo;
+    [SerializeField] float Radio0;
+    [SerializeField] float respawnProbability = 0.5f; // Probabilidad de duplicarse al respawn
+    [SerializeField] GameObject tortugaPrefab; // Prefab de la tortuga para el respawn
+    [SerializeField] Transform respawnPoint;
+
+    public Animator anim;
+    public Rigidbody2D rb;
     private Vector3Int currentCell;
-    public Vector2 respawnposition;
-    public float dilayrespawn = 1f;
-    public GameObject objectToClone;
-    public float probabilityToCloneTwo = 0.2f;
-    public Transform respawnPoint, secondpoint;
-    [SerializeField] int moveHor = 1;
     private Vector3Int[] directions = { Vector3Int.up, Vector3Int.down, Vector3Int.left, Vector3Int.right };
-    public bool isHit = false;
-    public Tilemap tilemap;
-    public LayerMask obstaculo;
-    public float Radio0;
-    public Vector2 offsetpunto;
-    public Transform jugador;
-    Animator anim;
+    private bool isMoving = false;
 
     private void Start()
     {
         anim = GetComponent<Animator>();
+        rb = GetComponent<Rigidbody2D>();
         currentCell = tilemap.WorldToCell(transform.position);
         StartCoroutine(MoveRoutine());
     }
@@ -35,95 +33,32 @@ public class COMPARAR : MonoBehaviour
     {
         while (true)
         {
-            yield return new WaitForSeconds(moveInterval);
+            float speed = IsOnMojadaTile() ? baseSpeed * mojadaSpeedMultiplier : baseSpeed;
 
             if (IsOnMojadaTile())
             {
-                MoveAlongMojadaPath();
+                if (!MoveTowardsWater(speed))
+                {
+                    MoveRandomly(speed); // Si no encuentra agua, moverse al azar
+                }
             }
             else
             {
-                MoveRandomly();
+                MoveRandomly(speed);
             }
+
+            yield return new WaitForSeconds(1f / speed); // Control del intervalo de movimiento según la velocidad
         }
     }
 
     private bool IsOnMojadaTile()
     {
-
         TileBase tileAtCurrentCell = tilemap.GetTile(currentCell);
-        return tileAtCurrentCell != null && tileAtCurrentCell == arenaMojadaRuleTile;
+        return tileAtCurrentCell != null && tileAtCurrentCell == arenaMojadaTile;
     }
 
-    private void MoveAlongMojadaPath()
+    private bool MoveTowardsWater(float speed)
     {
-
-        Vector3Int[] directions = { Vector3Int.right, Vector3Int.left };
-
-
-        bool moved = false;
-
-        if (TileAtAdjacentCell(Vector3Int.down) != null && TileAtAdjacentCell(Vector3Int.down) == arenaMojadaRuleTile)
-        {
-
-            currentCell += Vector3Int.down;
-            transform.position = tilemap.GetCellCenterWorld(currentCell);
-            anim.SetBool("Walk", true);
-            print("movimiento hacia " + Vector3Int.down);
-            moved = true;
-        }
-        else
-        {
-            if (TileAtAdjacentCell(Vector3Int.left * moveHor) != null && TileAtAdjacentCell(Vector3Int.left * moveHor) == arenaMojadaRuleTile)
-            {
-                currentCell += Vector3Int.left * moveHor;
-                transform.position = tilemap.GetCellCenterWorld(currentCell);
-                print("movimiento hacia " + Vector3Int.left * moveHor);
-                moved = true;
-            }
-            else
-            {
-                moveHor *= -1;
-            }
-        }
-
-        if (!moved)
-        {
-
-            CheckForWater();
-        }
-    }
-
-    private TileBase TileAtAdjacentCell(Vector3Int dir)
-    {
-        Vector3Int adjacentCell = currentCell + dir;
-        return tilemap.GetTile(adjacentCell);
-    }
-
-    private void MoveRandomly()
-    {
-
-        Vector3Int[] randomDirections = { Vector3Int.up, Vector3Int.down, Vector3Int.left, Vector3Int.right };
-        Vector3Int randomDirection = randomDirections[Random.Range(0, randomDirections.Length)];
-        Vector3Int adjacentCell = currentCell + randomDirection;
-        TileBase tileAtAdjacentCell = tilemap.GetTile(adjacentCell);
-        if (tileAtAdjacentCell != null && tileAtAdjacentCell == arenaMojadaRuleTile)
-        {
-            currentCell = adjacentCell;
-            transform.position = tilemap.GetCellCenterWorld(currentCell);
-            anim.SetBool("Walk", true);
-        }
-        else
-        {
-            anim.SetBool("Walk", false);
-
-        }
-    }
-
-    private void CheckForWater()
-    {
-        Vector3Int[] directions = { Vector3Int.down, Vector3Int.left, Vector3Int.right };
-
         foreach (var direction in directions)
         {
             Vector3Int adjacentCell = currentCell + direction;
@@ -131,117 +66,93 @@ public class COMPARAR : MonoBehaviour
 
             if (tileAtAdjacentCell != null && tileAtAdjacentCell == aguaTile)
             {
-                currentCell = adjacentCell;
-                transform.position = tilemap.GetCellCenterWorld(currentCell);
-                Debug.Log("Tortuga se mueve hacia el agua!");
-                Destroy(gameObject);
-                return;
+                StartCoroutine(SmoothMove(adjacentCell, speed));
+                return true; // Movimiento hacia el agua exitoso
             }
         }
-    }
-    private void OnTriggerEnter2D(Collider2D other)
-    {
-        if (other.gameObject.CompareTag("Water"))
-        {
-            CloneObjectWithProbability();
-            Destroy(this.gameObject);
-
-
-        }
-    }
-    private void Respawn()
-    {
-        if (objectToClone != null)
-        {
-            Instantiate(gameObject, objectToClone.transform.position, Quaternion.identity);
-        }
-
-    }
-    private void CloneObjectWithProbability()
-    {
-        float randomValue = Random.value;
-
-        if (randomValue <= probabilityToCloneTwo)
-        {
-            Instantiate(objectToClone, respawnPoint.position, respawnPoint.rotation);
-            Instantiate(objectToClone, respawnPoint.position + new Vector3(2f, 0f, 0f), respawnPoint.rotation);
-
-        }
-        else
-        {
-
-            Instantiate(objectToClone, respawnPoint.position, respawnPoint.rotation);
-
-        }
+        return false; // No encontró agua alrededor
     }
 
-    private void InstantiateAndActivateComponents(Vector3 position)
-    {
-
-        GameObject clone = Instantiate(objectToClone, position, Quaternion.identity);
-        Collider2D collider = clone.GetComponent<Collider2D>();
-        if (collider != null)
-        {
-            collider.enabled = true;
-        }
-        MonoBehaviour[] scripts = clone.GetComponents<MonoBehaviour>();
-        foreach (var script in scripts)
-        {
-            script.enabled = true;
-        }
-    }
-    private IEnumerator Golpe()
-    {
-        while (true)
-        {
-            if (!isHit)
-            {
-                yield return new WaitForSeconds(moveInterval);
-                MoveToRandomAdjacentCell();
-            }
-            yield return null;
-        }
-    }
-
-    private void MoveToRandomAdjacentCell()
+    private void MoveRandomly(float speed)
     {
         Vector3Int randomDirection = directions[Random.Range(0, directions.Length)];
         Vector3Int targetCell = currentCell + randomDirection;
-        Vector3 targetPosition = tilemap.GetCellCenterWorld(targetCell);
 
-        Vector3Int jugadorCell = tilemap.WorldToCell(jugador.position);
-
-        if (tilemap.HasTile(targetCell) && !Physics2D.OverlapCircle((Vector2)targetPosition + offsetpunto, Radio0, obstaculo) && targetCell != jugadorCell)
+        if (CanMoveToCell(targetCell))
         {
-            currentCell = targetCell;
-            transform.position = targetPosition;
+            StartCoroutine(SmoothMove(targetCell, speed));
         }
     }
-    public void HitByPlayer(Vector2 direction)
-    {
-        isHit = true;
 
-        Vector3Int hitDirection = new Vector3Int(Mathf.RoundToInt(direction.x), Mathf.RoundToInt(direction.y), 0);
-        Vector3Int targetCell = currentCell + hitDirection * 2;
+    private bool CanMoveToCell(Vector3Int cell)
+    {
+        TileBase tileAtCell = tilemap.GetTile(cell);
+        if (tileAtCell == null) return false; // No hay tile en esa celda
+        if (Physics2D.OverlapCircle(tilemap.GetCellCenterWorld(cell), Radio0, obstaculo)) return false; // Obstáculo presente
+
+        return true; // Puede moverse
+    }
+
+    private IEnumerator SmoothMove(Vector3Int targetCell, float speed)
+    {
+        if (isMoving) yield break; // Evitar movimientos simultáneos
+        isMoving = true;
+
+        Vector3 startPosition = transform.position;
         Vector3 targetPosition = tilemap.GetCellCenterWorld(targetCell);
 
-        if (tilemap.HasTile(targetCell) && !Physics2D.OverlapCircle((Vector2)targetPosition + offsetpunto, Radio0, obstaculo))
+        Vector2 direction = (targetPosition - startPosition).normalized;
+
+        // Actualizar parámetros del Blend Tree
+        anim.SetFloat("Xinput", direction.x);
+        anim.SetFloat("Yinput", direction.y);
+
+        if (Input.GetAxisRaw("Horizontal") == 1 || Input.GetAxisRaw("Horizontal") == -1 || Input.GetAxisRaw("Vertical") == 1 || Input.GetAxisRaw("Vertical") == -1)
         {
-            currentCell = targetCell;
-            transform.position = targetPosition;
+            anim.SetFloat("lastMoveX", Input.GetAxisRaw("Horizontal"));
+            anim.SetFloat("lastMoveY", Input.GetAxisRaw("Vertical"));
+        }
+        if (direction.x != 0)
+        {
+            GetComponent<SpriteRenderer>().flipX = direction.x > 0; // Flip en el eje X
         }
 
-        Invoke(nameof(ResetHit), 0.5f);
+        float elapsedTime = 0f;
+        float duration = 1f / speed; // Duración ajustada por la velocidad
+
+        while (elapsedTime < duration)
+        {
+            transform.position = Vector3.Lerp(startPosition, targetPosition, elapsedTime / duration);
+            elapsedTime += Time.deltaTime;
+            yield return null;
+        }
+
+        transform.position = targetPosition; // Alinear posición exacta
+        currentCell = targetCell;
+
+        isMoving = false;
+
+        // Verificar si llegó al agua
+        if (tilemap.GetTile(currentCell) == aguaTile)
+        {
+            RespawnOrDuplicate();
+        }
     }
 
-    private void ResetHit()
+    private void RespawnOrDuplicate()
     {
-        isHit = false;
-    }
+        // Destruir la tortuga actual
+        Destroy(gameObject);
 
-    private void OnDrawGizmos()
-    {
-        Gizmos.color = Color.red;
-        Gizmos.DrawWireSphere((Vector2)tilemap.GetCellCenterWorld(currentCell) + offsetpunto, Radio0);
+        // Respawn de una o dos tortugas según la probabilidad
+        if (Random.value <= respawnProbability)
+        {
+            Instantiate(tortugaPrefab, respawnPoint.position, Quaternion.identity);
+            Instantiate(tortugaPrefab, respawnPoint.position + Vector3.right * 2, Quaternion.identity);
+        }
+        else
+        {
+            Instantiate(tortugaPrefab, respawnPoint.position, Quaternion.identity);
+        }
     }
 }
