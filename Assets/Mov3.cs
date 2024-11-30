@@ -109,6 +109,7 @@ public class Mov3 : MonoBehaviour
                     {
                         humedadSlider.value -= 0.2f;
                         terrenoTilemap.SetTile(currentCell, arenaMojadaTile);
+                        FindAnyObjectByType<TileManager>().AddMojadoTile(currentCell);
                     }
                     else if (currentTile == arenaMojadaTile)
                     {
