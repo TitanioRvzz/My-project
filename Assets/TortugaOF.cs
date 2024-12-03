@@ -23,9 +23,15 @@ public class TortugaOF : MonoBehaviour
 
     public GameObject objectToClone;
     public float probabilityToCloneTwo;
-    public Transform respawnPoint, secondpoint;
+    [SerializeField] private GameObject[] objectsToSpawn; // Array de objetos para elegir
+    public Transform respawnPoint, secondpoint, Fin;
 
 
+    private void Awake()
+    {
+        this.gameObject.SetActive(true);
+
+    }
     private void Start()
     {
         anim = GetComponent<Animator>();
@@ -125,34 +131,65 @@ public class TortugaOF : MonoBehaviour
 
         transform.position = targetPosition; // Alinear posición exacta
         currentCell = targetCell;
+
+        float Stop = Random.Range(1,4);
+
+        // Verificar si el tile actual es arena mojada
+        TileBase currentTile = tilemap.GetTile(currentCell);
+        if (currentTile != arenaMojadaTile)
+        {
+            yield return new WaitForSeconds(Stop); // Cambia 1f por el tiempo deseado para arena seca
+        }
+
         isMoving = false;
     }
+
     private void OnTriggerEnter2D(Collider2D other)
     {
+        
         if (other.gameObject.CompareTag("Water"))
         {
             CloneObjectWithProbability();
-            Destroy(this.gameObject);
-
-
+            this.gameObject.SetActive(false);
+            //this.gameObject.GetComponent<TortugaOF>().enabled = false;
+            //gameObject.GetComponent<BoxCollider2D>().enabled = false;
+            //gameObject.transform.position = Fin.localPosition;
         }
     }
- 
+
+
+
+    //    private void CloneObjectWithProbability()
+    //    {
+    //        float randomValue = Random.value;
+
+    //        if (randomValue <= probabilityToCloneTwo)
+    //        {
+    //            Instantiate(objectToClone, respawnPoint.position, respawnPoint.rotation);
+    //            Instantiate(objectToClone, respawnPoint.position + new Vector3(4f, 0f, 0f), respawnPoint.rotation);
+    //        }
+    //        else
+    //        {
+    //            Instantiate(objectToClone, secondpoint.position, respawnPoint.rotation);
+
+    //        }
+    //    }
+
     private void CloneObjectWithProbability()
     {
-        float randomValue = Random.value;
+        // Elegir un objeto aleatorio del array
+        GameObject randomObject = objectsToSpawn[Random.Range(0, objectsToSpawn.Length)];
 
-        if (randomValue <= probabilityToCloneTwo)
+        // Determinar posición de respawn
+        Transform chosenRespawnPoint = Random.value <= probabilityToCloneTwo ? respawnPoint : secondpoint;
+
+        // Instanciar el objeto aleatorio en el punto elegido
+        Instantiate(randomObject, chosenRespawnPoint.position, chosenRespawnPoint.rotation);
+
+        // Con probabilidad, instanciar un segundo objeto
+        if (Random.value <= probabilityToCloneTwo)
         {
-            Instantiate(objectToClone, respawnPoint.position, respawnPoint.rotation);
-            Instantiate(objectToClone, respawnPoint.position + new Vector3(4f, 0f, 0f), respawnPoint.rotation);
-
-        }
-        else
-        {
-
-            Instantiate(objectToClone, secondpoint.position, respawnPoint.rotation);
-
+            Instantiate(randomObject, chosenRespawnPoint.position + Vector3.right * 4f, chosenRespawnPoint.rotation);
         }
     }
 }

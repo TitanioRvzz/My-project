@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Tortuga : MonoBehaviour
+public class TortugaAtaque : MonoBehaviour
 {
     [Header("Gaviota Settings")]
     public GameObject gaviota; 
@@ -47,28 +47,12 @@ public class Tortuga : MonoBehaviour
     {
         estaSiendoAtacada = true;
 
-        
-
-
         while (gaviota != null && Vector2.Distance(gaviota.transform.position, posicionAntesDeAtaque) > 0.1f)
         {
-           
-            gaviota.transform.position = Vector2.MoveTowards(
-                gaviota.transform.position,
-                posicionAntesDeAtaque,
-                velocidadAtaque * Time.deltaTime
-            );
+            gaviota.transform.position = Vector2.MoveTowards(gaviota.transform.position, posicionAntesDeAtaque, velocidadAtaque * Time.deltaTime);
             yield return null;
-
-           
         }
 
         estaSiendoAtacada = false;
-
-       
-
-
-
-
     }
 }

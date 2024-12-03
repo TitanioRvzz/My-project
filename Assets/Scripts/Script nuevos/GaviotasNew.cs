@@ -1,27 +1,26 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
-
-
-public class Gaviotas : MonoBehaviour
+public class GaviotaNew : MonoBehaviour
 {
-    public float speed = 5f; 
-    public float waitTime = 2f; // Enfriamento de collider2D 
+    public float speed;
+    public float waitTime; // Enfriamiento del collider2D
 
-
-
-    public Vector3 startPosition; // Posici�n inicial de la gaviota
-    private Vector3 targetPosition; 
+    private Vector3 startPosition; // Posición inicial de la gaviota
+    private Vector3 targetPosition;
     private bool isMoving = false; // Bandera para controlar el movimiento
-    private BoxCollider2D boxCollider; 
+    private BoxCollider2D boxCollider;
+
+    public GameManager gameManager;
 
     private void Start()
     {
-        // Guardar la posici�n inicial al iniciar
+        // Guardar la posición inicial al iniciar
         startPosition = transform.position;
 
-        // Obtener el BoxCollider2D del objeto
+
         boxCollider = GetComponent<BoxCollider2D>();
     }
 
@@ -29,10 +28,10 @@ public class Gaviotas : MonoBehaviour
     {
         if (isMoving)
         {
-            // Moverse hacia la posici�n objetivo
+            // Moverse hacia la posición objetivo
             transform.position = Vector3.MoveTowards(transform.position, targetPosition, speed * Time.deltaTime);
 
-            // Verificar si lleg� al objetivo
+            // Verificar si llegó al objetivo
             if (Vector3.Distance(transform.position, targetPosition) < 0.1f)
             {
                 isMoving = false;
@@ -40,11 +39,11 @@ public class Gaviotas : MonoBehaviour
                 // Si el objetivo era el inicio, detener el movimiento
                 if (targetPosition == startPosition)
                 {
-                    Debug.Log("Gaviota regres� a su posici�n inicial.");
+                    Debug.Log("Gaviota regresó a su posición inicial.");
                 }
                 else
                 {
-                    // Si lleg� a otro punto (como la tortuga), volver al inicio
+                    // Si llegó a otro punto (como la tortuga), volver al inicio
                     SetTarget(startPosition);
                 }
             }
@@ -53,35 +52,37 @@ public class Gaviotas : MonoBehaviour
 
     public void SetTarget(Vector3 newTargetPosition)
     {
-        // Configurar la nueva posici�n objetivo y habilitar el movimiento
+        // Configurar la nueva posición objetivo y habilitar el movimiento
         targetPosition = newTargetPosition;
         isMoving = true;
     }
 
-   private void OnTriggerEnter2D(Collider2D collision)
+    private void OnCollisionEnter2D(Collision2D collision)
     {
-        if (collision.gameObject.CompareTag("Turtle"))
+        if (collision.gameObject.GetComponent<TortugaOF>())
         {
-           
-            Destroy(collision.gameObject);
+            collision.gameObject.SetActive(false);
+            gameManager.EliminarTortuga();
 
-            // Comenzar el regreso al punto inicial despu�s de eliminar la tortuga
-           StartCoroutine(HandleAfterAttack());
+            // Comenzar el regreso al punto inicial después de eliminar la tortuga
+            StartCoroutine(HandleAfterAttack());
         }
     }
 
+
+
     private IEnumerator HandleAfterAttack()
     {
-        
+
         boxCollider.enabled = false;
 
-       
+
         SetTarget(startPosition);
 
-        
+
         yield return new WaitForSeconds(waitTime);
 
-        
+
         boxCollider.enabled = true;
     }
 }

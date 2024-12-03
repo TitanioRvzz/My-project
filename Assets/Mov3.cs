@@ -37,7 +37,7 @@ public class Mov3 : MonoBehaviour
         if (Input.GetKey(KeyCode.Space))
         {
             anim.SetBool("Hit", true);
-            HitPlayerAttack();
+            //HitPlayerAttack();
         }
         else
         {
@@ -107,13 +107,13 @@ public class Mov3 : MonoBehaviour
 
                     if (currentTile == arenaSecaTile)
                     {
-                        humedadSlider.value -= 0.2f;
+                        humedadSlider.value -= 0.15f;
                         terrenoTilemap.SetTile(currentCell, arenaMojadaTile);
                         FindAnyObjectByType<TileManager>().AddMojadoTile(currentCell);
                     }
                     else if (currentTile == arenaMojadaTile)
                     {
-                        humedadSlider.value -= 0.1f;
+                        humedadSlider.value -= 0.05f;
                     }
                 }
             }
@@ -135,19 +135,19 @@ public class Mov3 : MonoBehaviour
             anim.SetBool("InWater", false);
         }
     }
-    private void HitPlayerAttack()
-    {
-        Vector2 attackPosition = (Vector2)transform.position + lastMoveDirection;
-        Collider2D hitTortuga = Physics2D.OverlapCircle(attackPosition, Radio0, tortugaLayer);
+    //private void HitPlayerAttack()
+    //{
+    //    Vector2 attackPosition = (Vector2)transform.position + lastMoveDirection;
+    //    Collider2D hitTortuga = Physics2D.OverlapCircle(attackPosition, Radio0, tortugaLayer);
 
-        if (hitTortuga != null)
-        {
-            if (hitTortuga.TryGetComponent<TurtleMovement>(out TurtleMovement turtle))
-            {
-                turtle.HitByPlayer(lastMoveDirection);
-            }
-        }
-    }
+    //    if (hitTortuga != null)
+    //    {
+    //        if (hitTortuga.TryGetComponent<TortugaOF>(out TortugaOF turtle))
+    //        {
+    //            turtle.HitByPlayer(lastMoveDirection);
+    //        }
+    //    }
+    //}
 
     private void OnDrawGizmos()
     {
