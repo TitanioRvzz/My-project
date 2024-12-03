@@ -4,26 +4,27 @@ using UnityEngine.Tilemaps;
 
 public class Turtle2 : MonoBehaviour
 {
-    public int points = 8;
-    [SerializeField] RuleTile arenaMojadaRuleTile;
-    [SerializeField] TileBase aguaTile;
-    [SerializeField] float moveInterval = 5f;
     [SerializeField] Tilemap tilemap;
-    [SerializeField] LayerMask obstaculo;
+    [SerializeField] TileBase aguaTile;
+    [SerializeField] RuleTile arenaMojadaRuleTile;
     [SerializeField] float Radio0;
-    [SerializeField] Vector2 offsetpunto;
+    [SerializeField] LayerMask obstaculo;
     [SerializeField] int moveHor = 1;
 
-
+    private Animator anim;
     private Vector3Int currentCell;
     private Vector3Int[] directions = { Vector3Int.up, Vector3Int.down, Vector3Int.left, Vector3Int.right };
-    private Animator anim;
+
+    public int points = 8;
+    [SerializeField] Vector2 offsetpunto;
+    [SerializeField] float moveInterval = 5f;
 
     private void Start()
     {
-        anim = GetComponent<Animator>();
-        currentCell = tilemap.WorldToCell(transform.position);
-        StartCoroutine(MoveRoutine());
+         anim = GetComponent<Animator>();
+         currentCell = tilemap.WorldToCell(transform.position);
+         StartCoroutine(MoveRoutine());
+    
     }
 
     private IEnumerator MoveRoutine()
@@ -52,7 +53,7 @@ public class Turtle2 : MonoBehaviour
     private void MoveAlongMojadaPath()
     {
 
-        Vector3Int[] directions = { Vector3Int.right, Vector3Int.left };
+       //Vector3Int[] directions = { Vector3Int.right, Vector3Int.left };
 
 
         bool moved = false;

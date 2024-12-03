@@ -1,30 +1,32 @@
 using System.Collections;
+using UnityEditor;
 using UnityEngine;
 using UnityEngine.Tilemaps;
 
 public class COMPARAR: MonoBehaviour
 {
+    [SerializeField] Tilemap tilemap;
+    [SerializeField] TileBase aguaTile;
+    [SerializeField] TileBase arenaMojadaTile;
+    [SerializeField] float Radio;
+    [SerializeField] LayerMask obstaculo;
+    //[SerializeField] int moveHor = 1;
+    private bool isMoving = false;
+
+    public Animator anim;
+    private Vector3Int currentCell;
+    private Vector3Int[] directions = { Vector3Int.up, Vector3Int.down, Vector3Int.left, Vector3Int.right };
+
     [SerializeField] float baseSpeed = 2f; // Velocidad en arena seca
     [SerializeField] float mojadaSpeedMultiplier = 1.5f; // Multiplicador de velocidad en arena mojada
-    [SerializeField] TileBase arenaMojadaTile;
-    [SerializeField] TileBase aguaTile;
-    [SerializeField] Tilemap tilemap;
-    [SerializeField] LayerMask obstaculo;
-    [SerializeField] float Radio0;
     [SerializeField] float respawnProbability = 0.5f; // Probabilidad de duplicarse al respawn
     [SerializeField] GameObject tortugaPrefab; // Prefab de la tortuga para el respawn
     [SerializeField] Transform respawnPoint;
 
-    public Animator anim;
-    public Rigidbody2D rb;
-    private Vector3Int currentCell;
-    private Vector3Int[] directions = { Vector3Int.up, Vector3Int.down, Vector3Int.left, Vector3Int.right };
-    private bool isMoving = false;
 
     private void Start()
     {
         anim = GetComponent<Animator>();
-        rb = GetComponent<Rigidbody2D>();
         currentCell = tilemap.WorldToCell(transform.position);
         StartCoroutine(MoveRoutine());
     }
@@ -47,7 +49,7 @@ public class COMPARAR: MonoBehaviour
                 MoveRandomly(speed);
             }
 
-            yield return new WaitForSeconds(1f / speed); // Control del intervalo de movimiento según la velocidad
+            yield return new WaitForSeconds(0.5f / speed); // Control del intervalo de movimiento según la velocidad
         }
     }
 
@@ -88,8 +90,7 @@ public class COMPARAR: MonoBehaviour
     {
         TileBase tileAtCell = tilemap.GetTile(cell);
         if (tileAtCell == null) return false; // No hay tile en esa celda
-        if (Physics2D.OverlapCircle(tilemap.GetCellCenterWorld(cell), Radio0, obstaculo)) return false; // Obstáculo presente
-
+        if (Physics2D.OverlapCircle(tilemap.GetCellCenterWorld(cell), Radio, obstaculo)) return false; // Obstáculo presente
         return true; // Puede moverse
     }
 
