@@ -137,13 +137,7 @@ public class TortugaOF : MonoBehaviour
 
         }
     }
-    //private void Respawn()
-    //{
-    //    if (objectToClone != null)
-    //    {
-    //        Instantiate(gameObject, objectToClone.transform.position, Quaternion.identity);
-    //    }
-    //}
+ 
     private void CloneObjectWithProbability()
     {
         float randomValue = Random.value;
@@ -161,9 +155,4 @@ public class TortugaOF : MonoBehaviour
 
         }
     }
-    //private void RespawnOrDuplicate()
-    //{
-    //    Destroy(gameObject);
-    //    Debug.Log("Respawn o duplicación de la tortuga.");
-    //}
 }
