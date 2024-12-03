@@ -15,7 +15,7 @@ public class Water : MonoBehaviour
     private void OnTriggerEnter2D(Collider2D collision)
     {
 
-        Turtle2 turtle = collision.GetComponent<Turtle2>();
+        TortugaOF turtle = collision.GetComponent<TortugaOF>();
         if (turtle != null)
         {
             totalScore += turtle.points;
