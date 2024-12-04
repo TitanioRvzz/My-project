@@ -44,11 +44,6 @@ public class GaviotaNew : MonoBehaviour
 
                     Debug.Log("Gaviota regresó a su posición inicial.");
                 }
-                //else
-                //{
-                //    //Si llegó a otro punto(como la tortuga), volver al inicio
-                //    SetTarget(startPosition);
-                //}
             }
         }
     }
@@ -66,6 +61,7 @@ public class GaviotaNew : MonoBehaviour
         {
             tortuga.CloneObjectWithProbability();
             Destroy(collision.gameObject);
+            print("tortuga atacada");
             gameManager.EliminarTortuga();
 
             // Comenzar el regreso al punto inicial después de eliminar la tortuga
