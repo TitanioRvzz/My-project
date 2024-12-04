@@ -14,6 +14,7 @@ public class BañistaDer : MonoBehaviour
     public float moveSpeed;
     private Vector3Int currentCell;
     private bool isReturning = false;
+    public Animator An;
 
     private void Start()
     {
@@ -21,8 +22,9 @@ public class BañistaDer : MonoBehaviour
         currentCell = startPosition;
         transform.position = terrenoTilemap.GetCellCenterWorld(currentCell);
 
-
         StartCoroutine(MoveRoutine());
+        An = GetComponent<Animator>();
+        An.SetFloat("Moverse", 0);
     }
 
     private IEnumerator MoveRoutine()
@@ -36,14 +38,16 @@ public class BañistaDer : MonoBehaviour
 
 
                 Vector3Int nextCell = currentCell + Vector3Int.left;
-
+                An.SetFloat("Moverse", -1);
 
                 yield return MoveToCell(nextCell);
             }
-
-
+            An.SetFloat("Moverse", 0);
+            An.SetBool("Sentarse", true);
             yield return new WaitForSeconds(waitTime);
 
+            An.SetBool("Sentarse", false);
+            An.SetFloat("Moverse", 1);
 
             isReturning = true;
             StartCoroutine(ReturnToStart());
@@ -62,10 +66,11 @@ public class BañistaDer : MonoBehaviour
 
             Vector3Int nextCell = currentCell + nextDirection;
 
-
+            
             yield return MoveToCell(nextCell);
-        }
 
+        }
+        An.SetFloat("Moverse", 0);
 
         yield return new WaitForSeconds(waitBeforeReturnTime);
 
