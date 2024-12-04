@@ -23,7 +23,7 @@ AnimationClip:
       m_Curve:
       - serializedVersion: 3
         time: 0
-        value: 0
+        value: 1
         inSlope: Infinity
         outSlope: Infinity
         tangentMode: 103
@@ -43,13 +43,13 @@ AnimationClip:
     curve:
     - time: 0
       value: {fileID: 6688682081383057225, guid: c8edd2972e0eb5345872a928409a3379, type: 3}
-    - time: 0.1
+    - time: 0.06666667
       value: {fileID: -711411518101782243, guid: c8edd2972e0eb5345872a928409a3379, type: 3}
-    - time: 0.25
+    - time: 0.15
       value: {fileID: -8987566451427274517, guid: c8edd2972e0eb5345872a928409a3379, type: 3}
-    - time: 0.4
+    - time: 0.23333333
       value: {fileID: 7361403004766071915, guid: c8edd2972e0eb5345872a928409a3379, type: 3}
-    - time: 0.55
+    - time: 0.33333334
       value: {fileID: 6688682081383057225, guid: c8edd2972e0eb5345872a928409a3379, type: 3}
     attribute: m_Sprite
     path: 
@@ -92,7 +92,7 @@ AnimationClip:
     m_AdditiveReferencePoseClip: {fileID: 0}
     m_AdditiveReferencePoseTime: 0
     m_StartTime: 0
-    m_StopTime: 0.56666666
+    m_StopTime: 0.35000002
     m_OrientationOffsetY: 0
     m_Level: 0
     m_CycleOffset: 0
@@ -114,7 +114,7 @@ AnimationClip:
       m_Curve:
       - serializedVersion: 3
         time: 0
-        value: 0
+        value: 1
         inSlope: Infinity
         outSlope: Infinity
         tangentMode: 103

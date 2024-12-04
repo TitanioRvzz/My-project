@@ -1,4 +1,5 @@
 using System.Collections;
+using TMPro;
 using UnityEngine;
 using UnityEngine.Tilemaps;
 
@@ -26,6 +27,14 @@ public class TortugaOF : MonoBehaviour
     [SerializeField] GameObject[] objectsToSpawn; // Array de objetos para elegir
     public Transform respawnPoint, secondpoint, Fin;
 
+
+
+    public bool isHit = false;
+    public float Radio = 0.4f;
+    public Vector2 offsetpunto;
+
+
+
     private void Start()
     {
         anim = GetComponent<Animator>();
@@ -44,9 +53,11 @@ public class TortugaOF : MonoBehaviour
 
         // Movimiento aleatorio en arena seca
         MoveRandomly();
+
+        
     }
 
-    private bool CanMoveToCell(Vector3Int cell)
+        private bool CanMoveToCell(Vector3Int cell)
     {
         TileBase tileAtCell = tilemap.GetTile(cell);
         if (tileAtCell == null) return false; // No hay tile en esa celda
@@ -161,4 +172,26 @@ public class TortugaOF : MonoBehaviour
             Instantiate(gameObject, chosenRespawnPoint.position + Vector3.right * 4f, chosenRespawnPoint.rotation);
         }
     }
+
+    public void HitByPlayer(Vector2 direction)
+    {
+        isHit = true;
+
+        Vector3Int hitDirection = new Vector3Int(Mathf.RoundToInt(direction.x), Mathf.RoundToInt(direction.y), 0);
+        Vector3Int targetCell = currentCell + hitDirection * 2;
+        Vector3 targetPosition = tilemap.GetCellCenterWorld(targetCell);
+
+        if (tilemap.HasTile(targetCell) && !Physics2D.OverlapCircle((Vector2)targetPosition + offsetpunto, Radio, obstaculo))
+        {
+            currentCell = targetCell;
+            transform.position = targetPosition;
+        }
+
+        Invoke(nameof(ResetHit), 0.5f);
+    }
+    private void ResetHit()
+    {
+        isHit = false;
+    }
+
 }

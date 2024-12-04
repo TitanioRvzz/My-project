@@ -7,7 +7,7 @@ using UnityEngine.UI;
 public class Mov3 : MonoBehaviour
 {
     [SerializeField] float Speed;
-    [SerializeField] float Radio0;
+    [SerializeField] float Radio = 0.4f;
     [SerializeField] LayerMask obstaculo;
     [SerializeField] LayerMask tortugaLayer;
     [SerializeField] Tilemap terrenoTilemap;
@@ -34,15 +34,17 @@ public class Mov3 : MonoBehaviour
 
     void Update()
     {
-        if (Input.GetKey(KeyCode.Space))
+        // Ataque del jugador
+        if (Input.GetKeyDown(KeyCode.Space))
         {
+            HitPlayerAttack();
             anim.SetBool("Hit", true);
-            //HitPlayerAttack();
         }
         else
         {
             anim.SetBool("Hit", false);
         }
+
 
         rb.velocity = Speed * Time.deltaTime * new Vector2(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical"));
         anim.SetFloat("Xinput", rb.velocity.x);
@@ -74,7 +76,7 @@ public class Mov3 : MonoBehaviour
 
             Vector3Int nextCell = puntodemov + new Vector3Int((int)lastMoveDirection.x, (int)lastMoveDirection.y, 0);
 
-            if (!Physics2D.OverlapCircle(terrenoTilemap.GetCellCenterWorld(nextCell), Radio0, obstaculo))
+            if (!Physics2D.OverlapCircle(terrenoTilemap.GetCellCenterWorld(nextCell), Radio, obstaculo))
             {
                 puntodemov = nextCell; // Actualizar el objetivo del movimiento
                 moviendo = true;
@@ -96,7 +98,7 @@ public class Mov3 : MonoBehaviour
                 transform.position = targetPosition; // Alinear posición exacta
                 moviendo = false;
 
-                if (Physics2D.OverlapCircle(transform.position, Radio0, aguaLayer))
+                if (Physics2D.OverlapCircle(transform.position, Radio, aguaLayer))
                 {
                     humedadSlider.value = humedadSlider.maxValue;
                 }
@@ -116,6 +118,19 @@ public class Mov3 : MonoBehaviour
                         humedadSlider.value -= 0.05f;
                     }
                 }
+            }
+        }
+    }
+    private void HitPlayerAttack()
+    {
+        Vector2 attackPosition = (Vector2)transform.position + lastMoveDirection;
+        Collider2D hitTortuga = Physics2D.OverlapCircle(attackPosition, Radio, tortugaLayer);
+
+        if (hitTortuga != null)
+        {
+            if (hitTortuga.TryGetComponent<TortugaOF>(out TortugaOF turtle))
+            {
+                turtle.HitByPlayer(lastMoveDirection);
             }
         }
     }
