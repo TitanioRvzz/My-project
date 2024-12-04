@@ -1,25 +1,70 @@
 fileFormatVersion: 2
-guid: 0e4c6ad1e8b4e404fbe9be8e423894ab
+guid: 12f8c9b4f3f48ee4cb3547c09c0c0f66
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -4008684426477978850
-    second: GRID_NPC_2_0
+      213: -59066101396820148
+    second: hit_0
   - first:
-      213: -726533113642840529
-    second: GRID_NPC_2_1
+      213: -9037724387597929990
+    second: hit_1
   - first:
-      213: -1466036330613984668
-    second: GRID_NPC_2_2
+      213: 8501104746477335304
+    second: hit_2
   - first:
-      213: -3573797975279312951
-    second: GRID_NPC_2_3
+      213: 7761068069398732630
+    second: hit_3
   - first:
-      213: -674437828546663300
-    second: GRID_NPC_2_4
+      213: 1856308522752041849
+    second: hit_4
   - first:
-      213: 2572463448168980721
-    second: GRID_NPC_2_5
+      213: 1234192644943282544
+    second: hit_5
+  - first:
+      213: 989909491398256093
+    second: hit_6
+  - first:
+      213: -5926678406881896543
+    second: hit_7
+  - first:
+      213: -6955860993830895622
+    second: hit_8
+  - first:
+      213: 8119091522056278693
+    second: hit_9
+  - first:
+      213: 6582421384129425829
+    second: hit_10
+  - first:
+      213: 7501982553480022958
+    second: hit_11
+  - first:
+      213: -807369391212335218
+    second: hit_12
+  - first:
+      213: -2963418476423047431
+    second: hit_13
+  - first:
+      213: 163288431693981254
+    second: hit_14
+  - first:
+      213: -8272991531871355632
+    second: hit_15
+  - first:
+      213: 6713677043636732215
+    second: hit_16
+  - first:
+      213: -1662729983472418892
+    second: hit_17
+  - first:
+      213: 3120803683120105442
+    second: hit_18
+  - first:
+      213: 2521268465036875855
+    second: hit_19
+  - first:
+      213: 5355100820475096637
+    second: hit_20
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -128,127 +173,85 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: GRID_NPC_2_0
+      name: hit_0
       rect:
         serializedVersion: 2
-        x: 405
-        y: 160
-        width: 85
-        height: 57
+        x: 132
+        y: 209
+        width: 70
+        height: 52
       alignment: 9
-      pivot: {x: 0.775, y: 0.25}
+      pivot: {x: 0.7, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: e1bb327c0ca4e58c0800000000000000
-      internalID: -4008684426477978850
+      spriteID: c4fa9f791b72e2ff0800000000000000
+      internalID: -59066101396820148
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: GRID_NPC_2_5
+      name: hit_1
       rect:
         serializedVersion: 2
-        x: 277
-        y: 160
-        width: 85
-        height: 57
-      alignment: 9
-      pivot: {x: 0.775, y: 0.25}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 9a35616faf8f3ae439038b25d71e7eca
-      internalID: 2572463448168980721
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: GRID_NPC_2_8
-      rect:
-        serializedVersion: 2
-        x: 21
-        y: 160
-        width: 85
-        height: 57
-      alignment: 9
-      pivot: {x: 0.775, y: 0.25}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: dff7a0491423fcd4d92885482fceb6e8
-      internalID: 515382035
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: GRID_NPC_2_12
-      rect:
-        serializedVersion: 2
-        x: 148
-        y: 160
-        width: 85
-        height: 57
-      alignment: 9
-      pivot: {x: 0.775, y: 0.25}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: b3d858d7eebb68c4fb36cb7c1bba7ad2
-      internalID: -814814133
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: GRID_NPC_2_20
-      rect:
-        serializedVersion: 2
-        x: 31
-        y: 31
-        width: 68
-        height: 57
+        x: 78
+        y: 209
+        width: 50
+        height: 52
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
-      tessellationDetail: 0
+      tessellationDetail: -1
       bones: []
-      spriteID: a38ca0a1cb5cc2443980e6ae27672994
-      internalID: 2015053523
+      spriteID: af1375bad8d839280800000000000000
+      internalID: -9037724387597929990
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: GRID_NPC_2_21
+      name: hit_3
       rect:
         serializedVersion: 2
-        x: 159
-        y: 31
-        width: 68
-        height: 57
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+        x: 225
+        y: 209
+        width: 74
+        height: 52
+      alignment: 9
+      pivot: {x: 0.7, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
-      tessellationDetail: 0
+      tessellationDetail: -1
       bones: []
-      spriteID: 46695b5eab8d54448b9fe8d43470379c
-      internalID: -1948756267
+      spriteID: 65f532a0a4ad4bb60800000000000000
+      internalID: 7761068069398732630
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: hit_7
+      rect:
+        serializedVersion: 2
+        x: 310
+        y: 209
+        width: 75
+        height: 52
+      alignment: 9
+      pivot: {x: 0.7, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1a793dbc36530cda0800000000000000
+      internalID: -5926678406881896543
       vertices: []
       indices: 
       edges: []
@@ -256,7 +259,7 @@ TextureImporter:
     outline: []
     physicsShape: []
     bones: []
-    spriteID: 0f2af7eca24255a4b8fc121376f45ac4
+    spriteID: 8853deb019703e348b26abf1ea5091af
     internalID: 0
     vertices: []
     indices: 
@@ -264,31 +267,27 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      GRID_NPC_2_0: -4008684426477978850
-      GRID_NPC_2_1: -1420860532
-      GRID_NPC_2_10: -1346871332
-      GRID_NPC_2_11: -1908862641
-      GRID_NPC_2_12: -814814133
-      GRID_NPC_2_13: 81520658
-      GRID_NPC_2_14: 736150320
-      GRID_NPC_2_15: 202564865
-      GRID_NPC_2_16: -658074366
-      GRID_NPC_2_17: 929240197
-      GRID_NPC_2_18: -748552953
-      GRID_NPC_2_19: 355157903
-      GRID_NPC_2_2: 1117789109
-      GRID_NPC_2_20: 2015053523
-      GRID_NPC_2_21: -1948756267
-      GRID_NPC_2_22: 1883098316
-      GRID_NPC_2_23: 566870530
-      GRID_NPC_2_24: -1298520877
-      GRID_NPC_2_3: -1395220736
-      GRID_NPC_2_4: -166572794
-      GRID_NPC_2_5: 2572463448168980721
-      GRID_NPC_2_6: -668414302
-      GRID_NPC_2_7: 1759115756
-      GRID_NPC_2_8: 515382035
-      GRID_NPC_2_9: -1104092998
+      hit_0: -59066101396820148
+      hit_1: -9037724387597929990
+      hit_10: 6582421384129425829
+      hit_11: 7501982553480022958
+      hit_12: -807369391212335218
+      hit_13: -2963418476423047431
+      hit_14: 163288431693981254
+      hit_15: -8272991531871355632
+      hit_16: 6713677043636732215
+      hit_17: -1662729983472418892
+      hit_18: 3120803683120105442
+      hit_19: 2521268465036875855
+      hit_2: 8501104746477335304
+      hit_20: 5355100820475096637
+      hit_3: 7761068069398732630
+      hit_4: 1856308522752041849
+      hit_5: 1234192644943282544
+      hit_6: 989909491398256093
+      hit_7: -5926678406881896543
+      hit_8: -6955860993830895622
+      hit_9: 8119091522056278693
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
