@@ -181,7 +181,8 @@ public class TortugaOF : MonoBehaviour
         Vector3Int targetCell = currentCell + hitDirection * 2;
         Vector3 targetPosition = tilemap.GetCellCenterWorld(targetCell);
 
-        if (tilemap.HasTile(targetCell) && !Physics2D.OverlapCircle((Vector2)targetPosition + offsetpunto, Radio, obstaculo))
+        if (//tilemap.HasTile(targetCell) && 
+            !Physics2D.OverlapCircle((Vector2)targetPosition + offsetpunto, Radio, obstaculo))
         {
             currentCell = targetCell;
             transform.position = targetPosition;
