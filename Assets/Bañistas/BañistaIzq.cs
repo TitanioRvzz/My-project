@@ -13,13 +13,14 @@ public class BañistaIzq : MonoBehaviour
     private Vector3Int currentCell;
     private bool isReturning = false; //  Saber si regresa
     private int moveDirection = 1;
+    public Animator Bañista;
 
     private void Start()
     {
 
         currentCell = startPosition;
         transform.position = terrenoTilemap.GetCellCenterWorld(currentCell);
-
+        Bañista = GetComponent<Animator>();
 
         StartCoroutine(MoveRoutine());
     }
@@ -34,16 +35,22 @@ public class BañistaIzq : MonoBehaviour
 
 
                 Vector3Int nextCell = currentCell + Vector3Int.right * moveDirection;
+                transform.GetComponent<SpriteRenderer>().flipX = false;
 
 
                 yield return MoveToCell(nextCell);
             }
 
-
+            print("llega a final");
+            Bañista.SetBool("Sit", true);
             yield return new WaitForSeconds(waitTime);
 
+            print("se sienta");
 
             yield return new WaitForSeconds(waitBeforeReturnTime);
+            Bañista.SetBool("Sit", false);
+            transform.GetComponent<SpriteRenderer>().flipX = true;
+            print("se devuelve");
             isReturning = true;
             StartCoroutine(ReturnToStart());
         }
