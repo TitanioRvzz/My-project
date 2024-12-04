@@ -6,17 +6,25 @@ using UnityEngine.Audio;
 
 public class Sonidosbotones : MonoBehaviour
 {
-    public AudioSource audioSource;
-    public AudioClip audioClip;
+[Header("Volumen")]
+public AudioSource audioSource;
+public AudioClip audioClip;
+public AudioMixer Mixer;
+public GameObject panel;
 
-    private void Start() 
-    {
-    audioSource.clip = audioClip;    
-    }
 
-    public void Reproducir()
-    {
-        audioSource.Play();
-    }
+public void camiarvolumentmaster(float v)
+{
+    Mixer.SetFloat("SFX", v);
+}
+public void controlpanel(GameObject panell)
+{
+playsoundButton();
+}
+public void playsoundButton()
+
+{
+    audioSource.PlayOneShot(audioClip);
+}
 
 }

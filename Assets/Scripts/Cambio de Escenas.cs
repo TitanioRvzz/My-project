@@ -3,14 +3,11 @@ using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.Audio;
 
 public class CambiodeEscenas : MonoBehaviour
 {
-   private void Start() 
-   {
-    
-   }
- 
+
  public IEnumerator CambiarEscenadespues()
  {
 yield return new WaitForSeconds(2f);
@@ -18,24 +15,10 @@ yield return new WaitForSeconds(2f);
  }
  public IEnumerator playescene()
  {
-   yield return new WaitForSeconds(2f);
+   yield return new WaitForSeconds(5f);
    SceneManager.LoadScene(0);
  }
- public IEnumerator menuScene()
- {
-   yield return new WaitForSeconds(2f);
-   menuincio();
-    
- }
- 
- 
- public void optionScene()
-   {
-       StartCoroutine(CambiarEscenadespues());
-      // SceneManager.LoadScene(2);
-   }
-    
- 
+
  public void PlayScene()
  {
       StartCoroutine(CambiarEscenadespues());

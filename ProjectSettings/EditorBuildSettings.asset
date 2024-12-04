@@ -11,8 +11,5 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Menu.unity
     guid: 9f10ed57b0a1b944285e1aab17d1a2ff
-  - enabled: 1
-    path: Assets/Scenes/Sonido.unity
-    guid: 44620daebcb4e904584a0dd7cf7b00d0
   m_configObjects: {}
   m_UseUCBPForAssetBundles: 0
