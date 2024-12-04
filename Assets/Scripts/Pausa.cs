@@ -32,7 +32,7 @@ public void Reaundar()
 }
 public void salir()
 {
-  SceneManager.LoadScene(1);
+  SceneManager.LoadScene(0);
 }
 public void reiniciar()
 {

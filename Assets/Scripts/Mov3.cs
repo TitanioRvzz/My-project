@@ -20,6 +20,8 @@ public class Mov3 : MonoBehaviour
     private Vector3Int puntodemov;
     private bool moviendo = false;
     private Vector2 lastMoveDirection;
+    public AudioClip audioClip;
+    public AudioSource audioSource;
 
     private void Start()
     {
@@ -39,6 +41,8 @@ public class Mov3 : MonoBehaviour
         {
             HitPlayerAttack();
             anim.SetBool("Hit", true);
+            audioSource.clip = audioClip;
+            audioSource.Play();
         }
         else
         {
@@ -71,7 +75,7 @@ public class Mov3 : MonoBehaviour
             }
             else
             {
-                return; // No hay movimiento, salir del método
+                return; // No hay movimiento, salir del mï¿½todo
             }
 
             Vector3Int nextCell = puntodemov + new Vector3Int((int)lastMoveDirection.x, (int)lastMoveDirection.y, 0);
@@ -95,7 +99,7 @@ public class Mov3 : MonoBehaviour
 
             if (Vector2.Distance(transform.position, targetPosition) < 0.01f)
             {
-                transform.position = targetPosition; // Alinear posición exacta
+                transform.position = targetPosition; // Alinear posiciï¿½n exacta
                 moviendo = false;
 
                 if (Physics2D.OverlapCircle(transform.position, Radio, aguaLayer))
