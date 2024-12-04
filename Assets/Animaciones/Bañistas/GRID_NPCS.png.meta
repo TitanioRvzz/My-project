@@ -239,7 +239,12 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      GRID_NPCS_0: 5098056102421517558
+      GRID_NPCS_1: 6553047389088444204
+      GRID_NPCS_2: -5064138067637729537
+      GRID_NPCS_3: -6067505693802284040
+      GRID_NPCS_4: 5401407226164795530
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
