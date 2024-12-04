@@ -23,15 +23,9 @@ public class TortugaOF : MonoBehaviour
 
     public GameObject objectToClone;
     public float probabilityToCloneTwo;
-    [SerializeField] private GameObject[] objectsToSpawn; // Array de objetos para elegir
+    [SerializeField] GameObject[] objectsToSpawn; // Array de objetos para elegir
     public Transform respawnPoint, secondpoint, Fin;
 
-
-    private void Awake()
-    {
-        this.gameObject.SetActive(true);
-
-    }
     private void Start()
     {
         anim = GetComponent<Animator>();
@@ -146,50 +140,25 @@ public class TortugaOF : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D other)
     {
-        
+
         if (other.gameObject.CompareTag("Water"))
         {
             CloneObjectWithProbability();
-            this.gameObject.SetActive(false);
-            //this.gameObject.GetComponent<TortugaOF>().enabled = false;
-            //gameObject.GetComponent<BoxCollider2D>().enabled = false;
-            //gameObject.transform.position = Fin.localPosition;
         }
     }
 
-
-
-    //    private void CloneObjectWithProbability()
-    //    {
-    //        float randomValue = Random.value;
-
-    //        if (randomValue <= probabilityToCloneTwo)
-    //        {
-    //            Instantiate(objectToClone, respawnPoint.position, respawnPoint.rotation);
-    //            Instantiate(objectToClone, respawnPoint.position + new Vector3(4f, 0f, 0f), respawnPoint.rotation);
-    //        }
-    //        else
-    //        {
-    //            Instantiate(objectToClone, secondpoint.position, respawnPoint.rotation);
-
-    //        }
-    //    }
-
-    private void CloneObjectWithProbability()
+    public void CloneObjectWithProbability()
     {
-        // Elegir un objeto aleatorio del array
-        GameObject randomObject = objectsToSpawn[Random.Range(0, objectsToSpawn.Length)];
-
-        // Determinar posición de respawn
+        // Determinar el punto de respawn basado en la probabilidad
         Transform chosenRespawnPoint = Random.value <= probabilityToCloneTwo ? respawnPoint : secondpoint;
 
-        // Instanciar el objeto aleatorio en el punto elegido
-        Instantiate(randomObject, chosenRespawnPoint.position, chosenRespawnPoint.rotation);
+        // Respawnear la tortuga en el punto elegido
+        Instantiate(this.gameObject, chosenRespawnPoint.position, chosenRespawnPoint.rotation);
 
-        // Con probabilidad, instanciar un segundo objeto
+        // Con probabilidad, respawnear una tortuga duplicada
         if (Random.value <= probabilityToCloneTwo)
         {
-            Instantiate(randomObject, chosenRespawnPoint.position + Vector3.right * 4f, chosenRespawnPoint.rotation);
+            Instantiate(gameObject, chosenRespawnPoint.position + Vector3.right * 4f, chosenRespawnPoint.rotation);
         }
     }
 }

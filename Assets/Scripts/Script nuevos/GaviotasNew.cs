@@ -14,12 +14,13 @@ public class GaviotaNew : MonoBehaviour
     private BoxCollider2D boxCollider;
 
     public GameManager gameManager;
+    public TortugaOF tortuga;
+
 
     private void Start()
     {
         // Guardar la posición inicial al iniciar
         startPosition = transform.position;
-
 
         boxCollider = GetComponent<BoxCollider2D>();
     }
@@ -39,13 +40,15 @@ public class GaviotaNew : MonoBehaviour
                 // Si el objetivo era el inicio, detener el movimiento
                 if (targetPosition == startPosition)
                 {
+                    SetTarget(startPosition);
+
                     Debug.Log("Gaviota regresó a su posición inicial.");
                 }
-                else
-                {
-                    // Si llegó a otro punto (como la tortuga), volver al inicio
-                    SetTarget(startPosition);
-                }
+                //else
+                //{
+                //    //Si llegó a otro punto(como la tortuga), volver al inicio
+                //    SetTarget(startPosition);
+                //}
             }
         }
     }
@@ -61,15 +64,14 @@ public class GaviotaNew : MonoBehaviour
     {
         if (collision.gameObject.GetComponent<TortugaOF>())
         {
-            collision.gameObject.SetActive(false);
+            tortuga.CloneObjectWithProbability();
+            Destroy(collision.gameObject);
             gameManager.EliminarTortuga();
 
             // Comenzar el regreso al punto inicial después de eliminar la tortuga
             StartCoroutine(HandleAfterAttack());
         }
     }
-
-
 
     private IEnumerator HandleAfterAttack()
     {
