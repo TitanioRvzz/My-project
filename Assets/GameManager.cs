@@ -12,17 +12,16 @@ public class GameManager : MonoBehaviour
     public TextMeshProUGUI gameOverScoreText;
     public UnityEngine.UI.Button reiniciarButton;
     private Water waterScript;
+    public Animator animator;
 
     private void Start()
     {
-
-        waterScript = FindAnyObjectByType<Water>();
+        waterScript = FindFirstObjectByType<Water>();
 
         if (gameOverPanel != null)
         {
             gameOverPanel.SetActive(false);
         }
-
 
         if (reiniciarButton != null)
         {
@@ -34,6 +33,7 @@ public class GameManager : MonoBehaviour
     public void EliminarTortuga()
     {
         tortugasEliminadas++;
+        animator.SetInteger("Muerte", tortugasEliminadas);
 
         if (tortugasEliminadas >= limiteEliminaciones)
         {

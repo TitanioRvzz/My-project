@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: 9a873f236e603c841883f76d567099a2
+guid: 2d355ffb454e06f48b9ad302a6bbf26c
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -5805624302538038504
-    second: 360_F_756232596_74UWvjrjxVMOb5a0kQVm9VDSyunYikrG_0
+      213: 3812169161324104875
+    second: PANTALLA_DE_PERDIDA_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -51,7 +51,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 100
+  spritePixelsToUnits: 64
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -113,13 +113,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: 360_F_756232596_74UWvjrjxVMOb5a0kQVm9VDSyunYikrG_0
+      name: PANTALLA_DE_PERDIDA_0
       rect:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 643
-        height: 360
+        width: 3888
+        height: 2016
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -127,8 +127,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 81368d3d4774e6fa0800000000000000
-      internalID: -5805624302538038504
+      spriteID: bac0c6c87ab87e430800000000000000
+      internalID: 3812169161324104875
       vertices: []
       indices: 
       edges: []
@@ -144,7 +144,7 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      360_F_756232596_74UWvjrjxVMOb5a0kQVm9VDSyunYikrG_0: -5805624302538038504
+      PANTALLA_DE_PERDIDA_0: 3812169161324104875
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

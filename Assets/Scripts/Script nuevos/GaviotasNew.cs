@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.Tilemaps;
 
 public class GaviotaNew : MonoBehaviour
 {
@@ -16,6 +17,8 @@ public class GaviotaNew : MonoBehaviour
     public GameManager gameManager;
     public TortugaOF tortuga;
 
+    public AudioSource comida;
+    public AudioClip clip;
 
     private void Start()
     {
@@ -61,6 +64,8 @@ public class GaviotaNew : MonoBehaviour
         {
             tortuga.CloneObjectWithProbability();
             Destroy(collision.gameObject);
+            comida.clip = clip;
+            comida.Play();
             print("tortuga atacada");
             gameManager.EliminarTortuga();
 

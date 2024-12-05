@@ -98,14 +98,6 @@ public class BañistaIzq : MonoBehaviour
         transform.position = targetPosition;
         currentCell = targetCell;
     }
-
-    private void OnCollisionEnter2D(Collision2D collision)
-    {
-        if (collision.transform.CompareTag("Player"))
-        {
-            StopCoroutine(MoveRoutine());
-        }
-    }
 }
 
 

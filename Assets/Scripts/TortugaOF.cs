@@ -22,7 +22,6 @@ public class TortugaOF : MonoBehaviour
     private bool isMoving = false;
     private Animator anim;
 
-    public GameObject objectToClone;
     public float probabilityToCloneTwo;
     [SerializeField] GameObject[] objectsToSpawn; // Array de objetos para elegir
     public Transform respawnPoint, secondpoint, Fin;
