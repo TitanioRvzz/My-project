@@ -1,13 +1,14 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class TortugaAtaque : MonoBehaviour
 {
     [Header("Gaviota Settings")]
     public GameObject gaviota; 
-    public float tiempoSinMoverse = 3f; 
-    public float velocidadAtaque = 5f;
+    public float tiempoSinMoverse; 
+    public float velocidadAtaque;
 
     private Vector2 ultimaPosicion; 
     private Vector2 posicionAntesDeAtaque; 
@@ -32,7 +33,7 @@ public class TortugaAtaque : MonoBehaviour
             {
                 posicionAntesDeAtaque = ultimaPosicion; 
                 StartCoroutine(AtaqueGaviota());
-
+                
             }
         }
         else
@@ -47,7 +48,7 @@ public class TortugaAtaque : MonoBehaviour
     {
         estaSiendoAtacada = true;
 
-        while (gaviota != null && Vector2.Distance(gaviota.transform.position, posicionAntesDeAtaque) > 0.1f)
+        while (gaviota != null && Vector2.Distance(gaviota.transform.position, posicionAntesDeAtaque) > 0.7f)
         {
             gaviota.transform.position = Vector2.MoveTowards(gaviota.transform.position, posicionAntesDeAtaque, velocidadAtaque * Time.deltaTime);
             yield return null;

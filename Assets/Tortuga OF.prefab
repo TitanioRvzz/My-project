@@ -118,7 +118,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6c7a788d0cb303e4984be2b448ccb937, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  points: 5
+  points: 10
   tilemap: {fileID: 0}
   arenaTile: {fileID: 11400000, guid: 5eee5cf050d956d44bd6a70aa82b38fa, type: 2}
   arenaMojadaTile: {fileID: 11400000, guid: e943a943c12cdb74f835602427aed6e7, type: 2}
@@ -133,12 +133,14 @@ MonoBehaviour:
   - {x: 0, y: -1, z: 0}
   - {x: -1, y: 0, z: 0}
   - {x: 1, y: 0, z: 0}
-  objectToClone: {fileID: 6611551422004476902}
   probabilityToCloneTwo: 0.4
   objectsToSpawn: []
   respawnPoint: {fileID: 0}
   secondpoint: {fileID: 0}
   Fin: {fileID: 0}
+  isHit: 0
+  Radio: 0.4
+  offsetpunto: {x: 0, y: 0}
 --- !u!61 &6191582228133955930
 BoxCollider2D:
   m_ObjectHideFlags: 0

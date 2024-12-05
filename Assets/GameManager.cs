@@ -7,7 +7,7 @@ using TMPro;
 public class GameManager : MonoBehaviour
 {
     public int tortugasEliminadas = 0;
-    public int limiteEliminaciones = 2;
+    public int limiteEliminaciones = 4;
     public GameObject gameOverPanel;
     public TextMeshProUGUI gameOverScoreText;
     public UnityEngine.UI.Button reiniciarButton;

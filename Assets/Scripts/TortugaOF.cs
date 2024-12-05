@@ -136,7 +136,7 @@ public class TortugaOF : MonoBehaviour
         transform.position = targetPosition; // Alinear posición exacta
         currentCell = targetCell;
 
-        float Stop = Random.Range(1,4);
+        float Stop = Random.Range(1,5);
 
         // Verificar si el tile actual es arena mojada
         TileBase currentTile = tilemap.GetTile(currentCell);
